@@ -1,11 +1,11 @@
- // बिना किसी फोटो या ग्राफिक्स के बिल्कुल साफ़-सुथरा लैपटॉप डेटाबेस
+ // इमोजी (Emoji Pics) के साथ बिल्कुल सेफ़ और फ़ास्ट लैपटॉप डेटाबेस
 const allLaptops = [
-    { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best", stock: "🔥 Only 2 Left!" },
-    { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal", stock: "⚡ Selling Fast" },
-    { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best", stock: "🔥 Only 1 Left!" },
-    { id: 4, name: "Apple MacBook Air M1", price: 46500, specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", badge: "apple", stock: "🍏 Premium Quality" },
-    { id: 5, name: "Apple MacBook Pro M2", price: 68000, specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", badge: "apple", stock: "🔥 In High Demand" },
-    { id: 6, name: "Lenovo ThinkPad L14", price: 24500, specs: "Ryzen 5 | 8GB RAM | 512GB SSD", badge: "deal", stock: "⚡ 3 Items Left" }
+    { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best", laptopIcon: "💻", stock: "🔥 Only 2 Left!" },
+    { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal", laptopIcon: "💻", stock: "⚡ Selling Fast" },
+    { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best", laptopIcon: "💻", stock: "🔥 Only 1 Left!" },
+    { id: 4, name: "Apple MacBook Air M1", price: 46500, specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", badge: "apple", laptopIcon: "🍏", stock: "🍏 Premium Quality" },
+    { id: 5, name: "Apple MacBook Pro M2", price: 68000, specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", badge: "apple", laptopIcon: "💻", stock: "🔥 In High Demand" },
+    { id: 6, name: "Lenovo ThinkPad L14", price: 24500, specs: "Ryzen 5 | 8GB RAM | 512GB SSD", badge: "deal", laptopIcon: "💻", stock: "⚡ 3 Items Left" }
 ];
 
 const faqData = {
@@ -46,10 +46,11 @@ function displayLaptops(laptops) {
         card.className = 'laptop-card';
         let badgeText = laptop.badge === 'best' ? "🔥 Best Seller" : laptop.badge === 'deal' ? "⚡ Super Deal" : "🍏 Apple Premium";
         
-        // फोटो वाला डिब्बा पूरी तरह हटा दिया गया है
+        // यहाँ बिना किसी इमेज लिंक के सुंदर और बड़ा लैपटॉप का आइकन दिखेगा
         card.innerHTML = `
             <span class="badge ${laptop.badge}">${badgeText}</span>
-            <h3 style="margin-top: 35px;">${laptop.name}</h3>
+            <div class="laptop-img-wrapper" style="font-size: 80px; padding: 10px 0;">${laptop.laptopIcon}</div>
+            <h3>${laptop.name}</h3>
             <p class="specs">${laptop.specs}</p>
             <div><span class="stock-alert">${laptop.stock}</span></div>
             <p class="price">₹${laptop.price.toLocaleString('en-IN')}</p>
@@ -108,7 +109,7 @@ let canSpin = true;
 function spinWheel() {
     if (!canSpin) {
         document.getElementById('spinResult').style.color = "#dc3545";
-        document.getElementById('spinResult').innerText = "❌ आप अपना观察 इनाम और कोड जीत चुके हैं!";
+        document.getElementById('spinResult').innerText = "❌ आप अपना फाइनल इनाम और कोड जीत चुके हैं!";
         return;
     }
     const wheel = document.getElementById('wheel');
@@ -184,7 +185,6 @@ if(document.getElementById('bookingForm')) {
     });
 }
 
-// लोडिंग फंक्शन
 window.onload = function() {
     displayLaptops(allLaptops);
     switchLanguage('hi');
