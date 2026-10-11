@@ -10,7 +10,8 @@
 ];
 
 let selectedLaptop = null;
-let wonGift = ""; // ग्राहक का जीता हुआ गिफ्ट स्टोर करने के लिए
+let wonGift = ""; 
+let currentRotation = 0; // स्पिन डिग्री को ट्रैक करने के लिए
 
 // लैपटॉप डिस्प्ले करने का फंक्शन
 function displayLaptops(laptops) {
@@ -51,30 +52,48 @@ document.getElementById('searchBar').addEventListener('input', filterLaptops);
 document.getElementById('minPrice').addEventListener('input', filterLaptops);
 document.getElementById('maxPrice').addEventListener('input', filterLaptops);
 
-// स्पिन व्हील घुमाने का लॉजिक
-let hasSpun = false;
+// नया अपडेटेड स्पिन व्हील घुमाने का लॉजिक (रिफ्री-स्पिन चांस के साथ)
+let canSpin = true; 
 function spinWheel() {
-    if (hasSpun) {
-        document.getElementById('spinResult').innerText = "❌ आप आज का स्पिन खेल चुके हैं!";
+    if (!canSpin) {
+        document.getElementById('spinResult').style.color = "#dc3545";
+        document.getElementById('spinResult').innerText = "❌ आप अपना फाइनल इनाम जीत चुके हैं!";
         return;
     }
-    hasSpun = true;
-    const wheel = document.getElementById('wheel');
-    const gifts = ["Free Mouse 🖱️", "₹500 Discount 💰", "Laptop Bag 🎒", "Cleaning Kit 🧼", "₹1000 Discount 💵", "Wireless Keyboard ⌨️"];
-    
-    // रैंडम स्पिन एंगल (कम से कम 5 बार पूरा घूमेगा)
-    const randomDegree = Math.floor(Math.random() * 360) + 1800; 
-    wheel.style.transform = `rotate(${randomDegree}deg)`;
 
-    // व्हील रुकने के बाद गिफ्ट कैलकुलेट करना (4 सेकंड बाद)
+    const wheel = document.getElementById('wheel');
+    const btn = document.getElementById('spinBtn');
+    btn.disabled = true; // स्पिन के दौरान बटन बंद करें
+    document.getElementById('spinResult').style.color = "#28a745";
+    document.getElementById('spinResult').innerText = "🔄 भाग्य का पहिया घूम रहा है...";
+
+    // नए इनामों की लिस्ट (400, 600, 550 कैश डिस्काउंट्स के साथ)
+    const gifts = ["₹400 Discount 💰", "Mouse 🖱️", "₹600 Discount 💵", "Bag 🎒", "₹550 Discount 💸", "Keyboard ⌨️"];
+    
+    const randomDegree = Math.floor(Math.random() * 360) + 1800; 
+    currentRotation += randomDegree; 
+    wheel.style.transform = `rotate(${currentRotation}deg)`;
+
     setTimeout(() => {
-        const actualDegree = randomDegree % 360;
-        // 360 डिग्री को 6 बराबर हिस्सों (60 डिग्री प्रत्येक) में बांटा गया है
+        btn.disabled = false;
+        const actualDegree = currentRotation % 360;
         const index = Math.floor(((360 - actualDegree) % 360) / 60);
-        wonGift = gifts[index];
-        
-        document.getElementById('spinResult').innerHTML = `🎉 बधाई हो! आपने जीता: <strong>${wonGift}</strong><br><small>ऑर्डर करते समय यह गिफ्ट आपके साथ जुड़ जाएगा।</small>`;
-        document.getElementById('custGift').value = wonGift; // फॉर्म में गिफ्ट नाम डालना
+        const result = gifts[index];
+
+        // अगर Mouse, Bag या Keyboard आता है तो दोबारा मौका दें
+        if (result.includes("Mouse") || result.includes("Bag") || result.includes("Keyboard")) {
+            document.getElementById('spinResult').style.color = "#ff9800";
+            document.getElementById('spinResult').innerHTML = `🎁 आपको मिला: <strong>${result}</strong><br>🎉 अरे वाह! आपको <strong>1 और फ्री स्पिन करने का मौका</strong> मिलता है! दोबारा बटन दबाएं।`;
+            wonGift = ""; // अभी फाइनल गिफ्ट सेट नहीं हुआ
+            document.getElementById('custGift').value = "";
+            canSpin = true; // दोबारा स्पिन कर सकता है
+        } else {
+            // कैश डिस्काउंट आने पर फाइनल लॉक हो जाएगा
+            wonGift = result;
+            document.getElementById('spinResult').innerHTML = `🎉 बधाई हो! आपने जीता: <strong>${wonGift}</strong><br><small>WhatsApp ऑर्डर फॉर्म में यह डिस्काउंट जोड़ दिया गया है!</small>`;
+            document.getElementById('custGift').value = wonGift; 
+            canSpin = false; // अब और स्पिन नहीं होगा
+        }
     }, 4000);
 }
 
@@ -99,7 +118,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     const message = `🚨 *नया ऑर्डर आया है!* 🚨\n\n` +
                     `💻 *लैपटॉप:* ${selectedLaptop.name}\n` +
                     `💰 *कीमत:* ₹${selectedLaptop.price}\n` +
-                    `🎁 *जीता हुआ गिफ्ट:* ${wonGift || "कोई गिफ्ट नहीं जीता"}\n\n` +
+                    `🎁 *लकी स्पिन ऑफर:* ${wonGift || "कोई डिस्काउंट नहीं जीता"}\n\n` +
                     `👤 *ग्राहक का नाम:* ${name}\n` +
                     `📞 *WhatsApp नंबर:* ${phone}\n` +
                     `📍 *पता:* ${address}`;
@@ -108,5 +127,4 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     closeModal();
 });
 
-// डिफ़ॉल्ट रूप से लैपटॉप लोड करें
 displayLaptops(allLaptops);

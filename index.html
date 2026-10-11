@@ -12,13 +12,11 @@
         <h1 class="shop-title">🔥 SECOND HAND LAPTOP SHOP 🔥</h1>
         <p class="shop-subtitle">Premium Quality Laptops at Pocket-Friendly Prices</p>
         
-        <!-- कांटेक्ट डिटेल्स बॉक्स -->
         <div class="contact-info">
             <span>📞 Call/WhatsApp: +91 9876543210</span> | 
             <span>✉ Email: shop@gmail.com</span>
         </div>
         
-        <!-- सर्च और फिल्टर -->
         <div class="filter-container">
             <input type="text" id="searchBar" placeholder="🔍 लैपटॉप का नाम या स्पेक्स ढूंढें...">
             <div class="price-inputs">
@@ -32,23 +30,39 @@
         <!-- लैपटॉप की लिस्ट -->
         <main id="laptopContainer" class="laptop-grid"></main>
 
-        <!-- लकी स्पिन व्हील (गिफ्ट सेक्शन) -->
-        <aside class="spin-section">
-            <h3>🎁 लकी स्पिन: लैपटॉप के साथ गिफ्ट जीतें!</h3>
-            <p>लैपटॉप खरीदने से पहले अपनी किस्मत आज़माएं</p>
-            <div class="wheel-box">
-                <div class="wheel-pointer">👇</div>
-                <div id="wheel" class="wheel">
-                    <div class="segment" style="transform: rotate(0deg)"><span>Mouse</span></div>
-                    <div class="segment" style="transform: rotate(60deg)"><span>₹500 Off</span></div>
-                    <div class="segment" style="transform: rotate(120deg)"><span>Bag</span></div>
-                    <div class="segment" style="transform: rotate(180deg)"><span>Clean Kit</span></div>
-                    <div class="segment" style="transform: rotate(240deg)"><span>₹1000 Off</span></div>
-                    <div class="segment" style="transform: rotate(300deg)"><span>Keyboard</span></div>
+        <!-- साइडबार: स्पिन व्हील और रिव्यूज -->
+        <aside class="sidebar-section">
+            <!-- लकी स्पिन व्हील (गिफ्ट सेक्शन) -->
+            <div class="spin-section">
+                <h3>🎁 लकी स्पिन: लैपटॉप डिस्काउंट जीतें!</h3>
+                <p>लैपटॉप खरीदने से पहले अपनी किस्मत आज़माएं</p>
+                <div class="wheel-box">
+                    <div class="wheel-pointer">👇</div>
+                    <div id="wheel" class="wheel">
+                        <div class="segment" style="transform: rotate(0deg)"><span>₹400 Off</span></div>
+                        <div class="segment" style="transform: rotate(60deg)"><span>Mouse (1 More)</span></div>
+                        <div class="segment" style="transform: rotate(120deg)"><span>₹600 Off</span></div>
+                        <div class="segment" style="transform: rotate(180deg)"><span>Bag (1 More)</span></div>
+                        <div class="segment" style="transform: rotate(240deg)"><span>₹550 Off</span></div>
+                        <div class="segment" style="transform: rotate(300deg)"><span>Keyboard (1 More)</span></div>
+                    </div>
+                </div>
+                <button id="spinBtn" onclick="spinWheel()">व्हील घुमाएं 🎯</button>
+                <p id="spinResult" class="spin-result"></p>
+            </div>
+
+            <!-- खाली जगह भरने के लिए कस्टमर रिव्यूज सेक्शन -->
+            <div class="reviews-section">
+                <h3>⭐ हमारे खुश ग्राहक (Reviews)</h3>
+                <div class="review-card">
+                    <p class="review-text">"मैंने यहाँ से ThinkPad लिया, कंडीशन बिल्कुल नए जैसी है और स्पिन में मुझे ₹600 का डिस्काउंट भी मिला!"</p>
+                    <p class="review-author">👤 राहुल कुमार, दिल्ली (⭐⭐⭐⭐⭐)</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"मैकबुक एयर M1 बेस्ट प्राइस में मिला। WhatsApp पर बुकिंग करते ही तुरंत रिप्लाई आया। थैंक्यू भाई!"</p>
+                    <p class="review-author">👤 अमित शर्मा, मुंबई (⭐⭐⭐⭐⭐)</p>
                 </div>
             </div>
-            <button id="spinBtn" onclick="spinWheel()">व्हील घुमाएं 🎯</button>
-            <p id="spinResult" class="spin-result"></p>
         </aside>
     </div>
 
@@ -61,8 +75,7 @@
             <form id="bookingForm">
                 <input type="text" id="custName" placeholder="Enter Your Full Name" required>
                 <input type="tel" id="custPhone" placeholder="Enter WhatsApp Number" required>
-                <!-- ग्राहक का जीता हुआ गिफ्ट ऑटोमैटिक यहाँ आ जाएगा -->
-                <input type="text" id="custGift" placeholder="Your Won Gift (Optional)" readonly>
+                <input type="text" id="custGift" placeholder="Your Won Discount/Gift" readonly>
                 <textarea id="custAddress" placeholder="Enter Delivery Full Address" rows="4" required></textarea>
                 <button type="submit" class="submit-booking">📲 Complete Booking via WhatsApp</button>
                 <button type="button" class="close-btn" onclick="closeModal()">Cancel</button>
