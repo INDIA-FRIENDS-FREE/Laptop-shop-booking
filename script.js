@@ -1,58 +1,11 @@
- const allLaptops = [
-    { 
-        id: 1, 
-        name: "ThinkPad T480s", 
-        price: 18500, 
-        specs: "i5 8th Gen | 16GB RAM | 512GB SSD", 
-        badge: "best", 
-        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#1a1a1a"/><rect x="23" y="13" width="54" height="32" fill="#000000"/><circle cx="50" cy="29" r="1.5" fill="#d9534f"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><path d="M 40 48 L 43 51 L 57 51 L 60 48 Z" fill="#1a1a1a"/><text x="50" y="32" fill="#555" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>', 
-        stock: "🔥 Only 2 Left!" 
-    },
-    { 
-        id: 2, 
-        name: "Dell Latitude 7490", 
-        price: 16500, 
-        specs: "i5 8th Gen | 16GB RAM | 256GB SSD", 
-        badge: "deal", 
-        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#3a3f44"/><rect x="23" y="13" width="54" height="32" fill="#f8f9fa"/><circle cx="50" cy="29" r="6" fill="none" stroke="#007bff" stroke-width="1"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><text x="50" y="31" fill="#007bff" font-size="5" font-family="sans-serif" font-weight="bold" text-anchor="middle">DELL</text></svg>', 
-        stock: "⚡ Selling Fast" 
-    },
-    { 
-        id: 3, 
-        name: "HP EliteBook 840 G5", 
-        price: 22000, 
-        specs: "i7 8th Gen | 16GB RAM | 512GB SSD", 
-        badge: "best", 
-        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#d1d5db"/><rect x="23" y="13" width="54" height="32" fill="#ffffff"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#9ca3af"/><text x="50" y="32" fill="#718096" font-size="7" font-family="sans-serif" font-style="italic" font-weight="bold" text-anchor="middle">hp</text></svg>', 
-        stock: "🔥 Only 1 Left!" 
-    },
-    { 
-        id: 4, 
-        name: "Apple MacBook Air M1", 
-        price: 46500, 
-        specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", 
-        badge: "apple", 
-        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="3" fill="#e2e8f0"/><rect x="22" y="12" width="56" height="34" fill="#ffffff"/><path d="M 50 25 Q 48 25 48 28 Q 48 31 50 31 Q 52 31 52 28 Q 52 25 50 25 Z M 51 23 Q 52 22 51 21 Q 50 22 50 23 Z" fill="#a0aec0"/><rect x="10" y="48" width="80" height="3" rx="1" fill="#cbd5e1"/></svg>', 
-        stock: "🍏 Premium Quality" 
-    },
-    { 
-        id: 5, 
-        name: "Apple MacBook Pro M2", 
-        price: 68000, 
-        specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", 
-        badge: "apple", 
-        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="3" fill="#64748b"/><rect x="22" y="12" width="56" height="34" fill="#0f172a"/><path d="M 50 25 Q 48 25 48 28 Q 48 31 50 31 Q 52 31 52 28 Q 52 25 50 25 Z M 51 23 Q 52 22 51 21 Q 50 22 50 23 Z" fill="#94a3b8"/><rect x="10" y="48" width="80" height="3" rx="1" fill="#475569"/></svg>', 
-        stock: "🔥 In High Demand" 
-    },
-    { 
-        id: 6, 
-        name: "Lenovo ThinkPad L14", 
-        price: 24500, 
-        specs: "Ryzen 5 | 8GB RAM | 512GB SSD", 
-        badge: "deal", 
-        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#262626"/><rect x="23" y="13" width="54" height="32" fill="#0a0a0a"/><circle cx="50" cy="29" r="1.5" fill="#e11d48"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#404040"/><text x="50" y="32" fill="#555" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>', 
-        stock: "⚡ 3 Items Left" 
-    }
+ // बिना किसी फोटो या ग्राफिक्स के बिल्कुल साफ़-सुथरा लैपटॉप डेटाबेस
+const allLaptops = [
+    { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best", stock: "🔥 Only 2 Left!" },
+    { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal", stock: "⚡ Selling Fast" },
+    { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best", stock: "🔥 Only 1 Left!" },
+    { id: 4, name: "Apple MacBook Air M1", price: 46500, specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", badge: "apple", stock: "🍏 Premium Quality" },
+    { id: 5, name: "Apple MacBook Pro M2", price: 68000, specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", badge: "apple", stock: "🔥 In High Demand" },
+    { id: 6, name: "Lenovo ThinkPad L14", price: 24500, specs: "Ryzen 5 | 8GB RAM | 512GB SSD", badge: "deal", stock: "⚡ 3 Items Left" }
 ];
 
 const faqData = {
@@ -93,10 +46,10 @@ function displayLaptops(laptops) {
         card.className = 'laptop-card';
         let badgeText = laptop.badge === 'best' ? "🔥 Best Seller" : laptop.badge === 'deal' ? "⚡ Super Deal" : "🍏 Apple Premium";
         
+        // फोटो वाला डिब्बा पूरी तरह हटा दिया गया है
         card.innerHTML = `
             <span class="badge ${laptop.badge}">${badgeText}</span>
-            <div class="laptop-img-wrapper">${laptop.imageHtml}</div>
-            <h3>${laptop.name}</h3>
+            <h3 style="margin-top: 35px;">${laptop.name}</h3>
             <p class="specs">${laptop.specs}</p>
             <div><span class="stock-alert">${laptop.stock}</span></div>
             <p class="price">₹${laptop.price.toLocaleString('en-IN')}</p>
@@ -155,7 +108,7 @@ let canSpin = true;
 function spinWheel() {
     if (!canSpin) {
         document.getElementById('spinResult').style.color = "#dc3545";
-        document.getElementById('spinResult').innerText = "❌ आप अपना फाइनल इनाम और कोड जीत चुके हैं!";
+        document.getElementById('spinResult').innerText = "❌ आप अपना观察 इनाम और कोड जीत चुके हैं!";
         return;
     }
     const wheel = document.getElementById('wheel');
@@ -181,3 +134,58 @@ function spinWheel() {
 
         if (result.includes("Mouse") || result.includes("Bag") || result.includes("Keyboard")) {
             document.getElementById('spinResult').style.color = "#ff9800";
+            document.getElementById('spinResult').innerHTML = `🎁 आपको मिला: <strong>${result}</strong><br>🎉 आपको <strong>1 और फ्री स्पिन करने का मौका</strong> मिलता है! दोबारा ट्राई करें।`;
+            generatedCode = "";
+            canSpin = true; 
+        } else {
+            if(index === 1) generatedCode = codeMap["Key"];
+            if(index === 3) generatedCode = codeMap["Key6"];
+            if(index === 5) generatedCode = codeMap["Key5"];
+
+            document.getElementById('spinResult').innerHTML = `🎉 बधाई हो! आपने जीता: <strong>${result}</strong><br>🔐 आपका सीक्रेट स्पिन कोड है: <strong style='color:#ff5722; font-size:18px;'>${generatedCode}</strong><br><small>ऑर्डर फॉर्म भरते समय इस कोड को अवश्य डालें!</small>`;
+            canSpin = false; 
+        }
+    }, 4000);
+}
+
+function openModal(id) {
+    selectedLaptop = allLaptops.find(l => l.id === id);
+    const infoEl = document.getElementById('modalLaptopInfo');
+    const modalEl = document.getElementById('orderModal');
+    if(infoEl && modalEl) {
+        infoEl.innerText = `Buying: ${selectedLaptop.name} (₹${selectedLaptop.price})`;
+        modalEl.style.display = 'flex';
+    }
+}
+function closeModal() { 
+    if(document.getElementById('orderModal')) document.getElementById('orderModal').style.display = 'none'; 
+}
+
+if(document.getElementById('bookingForm')) {
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('custName').value;
+        const phone = document.getElementById('custPhone').value;
+        const enteredCode = document.getElementById('custCode').value.trim().toUpperCase();
+        const address = document.getElementById('custAddress').value;
+        
+        const myWhatsAppNumber = "919876543210"; 
+
+        const message = `🚨 *नया ऑर्डर आया है!* 🚨\n\n` +
+                        `💻 *लैपटॉप:* ${selectedLaptop.name}\n` +
+                        `💰 *कीमत:* ₹${selectedLaptop.price}\n` +
+                        `🔐 *कस्टमर का स्पिन कोड:* ${enteredCode || "कोई कोड नहीं डाला"}\n\n` +
+                        `👤 *ग्राहक का नाम:* ${name}\n` +
+                        `📞 *WhatsApp नंबर:* ${phone}\n` +
+                        `📍 *पता:* ${address}`;
+
+        window.open(`https://wa.me{myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        closeModal();
+    });
+}
+
+// लोडिंग फंक्शन
+window.onload = function() {
+    displayLaptops(allLaptops);
+    switchLanguage('hi');
+};

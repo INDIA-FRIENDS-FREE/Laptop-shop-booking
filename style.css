@@ -43,16 +43,6 @@ header {
 .laptop-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; position: relative; transition: transform 0.3s; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
 .laptop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-.laptop-img-wrapper {
-    width: 100%;
-    height: 160px;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-}
-
 .badge { position: absolute; top: 15px; left: 15px; padding: 5px 10px; font-size: 12px; font-weight: bold; color: white; border-radius: 20px; z-index: 5; }
 .badge.best { background: #ff5722; } .badge.deal { background: #e91e63; } .badge.apple { background: #000; }
 .laptop-card h3 { margin: 15px 0 5px 0; font-size: 1.2rem; }
