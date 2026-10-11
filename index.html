@@ -32,7 +32,6 @@
 
         <!-- साइडबार: स्पिन व्हील और रिव्यूज -->
         <aside class="sidebar-section">
-            <!-- लकी स्पिन व्हील (गिफ्ट सेक्शन) -->
             <div class="spin-section">
                 <h3>🎁 लकी स्पिन: लैपटॉप डिस्काउंट जीतें!</h3>
                 <p>लैपटॉप खरीदने से पहले अपनी किस्मत आज़माएं</p>
@@ -51,7 +50,7 @@
                 <p id="spinResult" class="spin-result"></p>
             </div>
 
-            <!-- खाली जगह भरने के लिए कस्टमर रिव्यूज सेक्शन -->
+            <!-- रिव्यूज सेक्शन -->
             <div class="reviews-section">
                 <h3>⭐ हमारे खुश ग्राहक (Reviews)</h3>
                 <div class="review-card">
@@ -75,7 +74,8 @@
             <form id="bookingForm">
                 <input type="text" id="custName" placeholder="Enter Your Full Name" required>
                 <input type="tel" id="custPhone" placeholder="Enter WhatsApp Number" required>
-                <input type="text" id="custGift" placeholder="Your Won Discount/Gift" readonly>
+                <!-- सीक्रेट कोड डालने के लिए नया इनपुट बॉक्स -->
+                <input type="text" id="custCode" placeholder="Enter Your 4-Digit Spin Code (If won)" style="border: 2px solid #ff5722; font-weight: bold; text-transform: uppercase;">
                 <textarea id="custAddress" placeholder="Enter Delivery Full Address" rows="4" required></textarea>
                 <button type="submit" class="submit-booking">📲 Complete Booking via WhatsApp</button>
                 <button type="button" class="close-btn" onclick="closeModal()">Cancel</button>

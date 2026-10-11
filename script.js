@@ -10,10 +10,9 @@
 ];
 
 let selectedLaptop = null;
-let wonGift = ""; 
-let currentRotation = 0; // स्पिन डिग्री को ट्रैक करने के लिए
+let generatedCode = ""; // सीक्रेट कोड रखने के लिए वेरिएबल
+let currentRotation = 0; 
 
-// लैपटॉप डिस्प्ले करने का फंक्शन
 function displayLaptops(laptops) {
     const container = document.getElementById('laptopContainer');
     container.innerHTML = ""; 
@@ -36,7 +35,6 @@ function displayLaptops(laptops) {
     });
 }
 
-// सर्च और फिल्टर लॉजिक
 function filterLaptops() {
     const searchTxt = document.getElementById('searchBar').value.toLowerCase();
     const minP = parseFloat(document.getElementById('minPrice').value) || 0;
@@ -52,23 +50,31 @@ document.getElementById('searchBar').addEventListener('input', filterLaptops);
 document.getElementById('minPrice').addEventListener('input', filterLaptops);
 document.getElementById('maxPrice').addEventListener('input', filterLaptops);
 
-// नया अपडेटेड स्पिन व्हील घुमाने का लॉजिक (रिफ्री-स्पिन चांस के साथ)
+// सीक्रेट कोड जनरेटर और स्पिन लॉजिक
 let canSpin = true; 
 function spinWheel() {
     if (!canSpin) {
         document.getElementById('spinResult').style.color = "#dc3545";
-        document.getElementById('spinResult').innerText = "❌ आप अपना फाइनल इनाम जीत चुके हैं!";
+        document.getElementById('spinResult').innerText = "❌ आप अपना फाइनल इनाम और कोड जीत चुके हैं!";
         return;
     }
 
     const wheel = document.getElementById('wheel');
     const btn = document.getElementById('spinBtn');
-    btn.disabled = true; // स्पिन के दौरान बटन बंद करें
+    btn.disabled = true; 
     document.getElementById('spinResult').style.color = "#28a745";
     document.getElementById('spinResult').innerText = "🔄 भाग्य का पहिया घूम रहा है...";
 
-    // नए इनामों की लिस्ट (400, 600, 550 कैश डिस्काउंट्स के साथ)
     const gifts = ["₹400 Discount 💰", "Mouse 🖱️", "₹600 Discount 💵", "Bag 🎒", "₹550 Discount 💸", "Keyboard ⌨️"];
+    // हर इनाम के लिए आपकी सीक्रेट कोड डिक्शनरी
+    const codeMap = {
+        "Key": "LPT4", // ₹400 Off का कोड
+        "M2": "MSE2",  // Mouse का री-स्पिन मैसेज
+        "Key6": "DSC6", // ₹600 Off का कोड
+        "B4": "BAG4",  // Bag का री-स्पिन मैसेज
+        "Key5": "OFF5", // ₹550 Off का कोड
+        "K1": "KBD1"   // Keyboard का री-स्पिन मैसेज
+    };
     
     const randomDegree = Math.floor(Math.random() * 360) + 1800; 
     currentRotation += randomDegree; 
@@ -80,24 +86,23 @@ function spinWheel() {
         const index = Math.floor(((360 - actualDegree) % 360) / 60);
         const result = gifts[index];
 
-        // अगर Mouse, Bag या Keyboard आता है तो दोबारा मौका दें
         if (result.includes("Mouse") || result.includes("Bag") || result.includes("Keyboard")) {
             document.getElementById('spinResult').style.color = "#ff9800";
-            document.getElementById('spinResult').innerHTML = `🎁 आपको मिला: <strong>${result}</strong><br>🎉 अरे वाह! आपको <strong>1 और फ्री स्पिन करने का मौका</strong> मिलता है! दोबारा बटन दबाएं।`;
-            wonGift = ""; // अभी फाइनल गिफ्ट सेट नहीं हुआ
-            document.getElementById('custGift').value = "";
-            canSpin = true; // दोबारा स्पिन कर सकता है
+            document.getElementById('spinResult').innerHTML = `🎁 आपको मिला: <strong>${result}</strong><br>🎉 आपको <strong>1 और फ्री स्पिन करने का मौका</strong> मिलता है! दोबारा बटन दबाएं।`;
+            generatedCode = "";
+            canSpin = true; 
         } else {
-            // कैश डिस्काउंट आने पर फाइनल लॉक हो जाएगा
-            wonGift = result;
-            document.getElementById('spinResult').innerHTML = `🎉 बधाई हो! आपने जीता: <strong>${wonGift}</strong><br><small>WhatsApp ऑर्डर फॉर्म में यह डिस्काउंट जोड़ दिया गया है!</small>`;
-            document.getElementById('custGift').value = wonGift; 
-            canSpin = false; // अब और स्पिन नहीं होगा
+            // सीक्रेट कोड असाइन करना
+            if(index === 0) generatedCode = codeMap["Key"];
+            if(index === 2) generatedCode = codeMap["Key6"];
+            if(index === 4) generatedCode = codeMap["Key5"];
+
+            document.getElementById('spinResult').innerHTML = `🎉 बधाई हो! आपने जीता: <strong>${result}</strong><br>🔐 आपका सीक्रेट स्पिन कोड है: <strong style='color:#ff5722; font-size:18px;'>${generatedCode}</strong><br><small>ऑर्डर फॉर्म भरते समय इस कोड को अवश्य डालें!</small>`;
+            canSpin = false; 
         }
     }, 4000);
 }
 
-// पॉपअप फॉर्म खोलना/बंद करना
 function openModal(id) {
     selectedLaptop = allLaptops.find(l => l.id === id);
     document.getElementById('modalLaptopInfo').innerText = `Buying: ${selectedLaptop.name} (₹${selectedLaptop.price})`;
@@ -110,18 +115,19 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('custName').value;
     const phone = document.getElementById('custPhone').value;
+    const enteredCode = document.getElementById('custCode').value.trim().toUpperCase();
     const address = document.getElementById('custAddress').value;
     
-    // ⚠️ अपना 10 अंकों का मोबाइल नंबर यहाँ डालें (91 के बाद)
+    // ⚠️ अपना 10 अंकों का मोबाइल नंबर यहाँ डालें
     const myWhatsAppNumber = "919876543210"; 
 
     const message = `🚨 *नया ऑर्डर आया है!* 🚨\n\n` +
                     `💻 *लैपटॉप:* ${selectedLaptop.name}\n` +
                     `💰 *कीमत:* ₹${selectedLaptop.price}\n` +
-                    `🎁 *लकी स्पिन ऑफर:* ${wonGift || "कोई डिस्काउंट नहीं जीता"}\n\n` +
+                    `🔐 *कस्टमर का स्पिन कोड:* ${enteredCode || "कोई कोड नहीं डाला"}\n\n` +
                     `👤 *ग्राहक का नाम:* ${name}\n` +
                     `📞 *WhatsApp नंबर:* ${phone}\n` +
-                    `📍 *पता:* ${address}`;
+                    `📍 *पता:* *${address}*`;
 
     window.open(`https://wa.me{myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
     closeModal();
