@@ -3,155 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Laptops | Premium Second-Hand Store</title>
+    <title>Laptop Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 1. टॉप नेविगेशन बार -->
-    <header class="navbar">
-        <div class="logo">💻 NextGen<span>Laptops</span></div>
-        <div class="shop-contact">
-            <span>📞 +91 9876543210</span> | 
-            <span>✉️ shop@gmail.com</span>
+    <header>
+        <h1>My Laptop Store</h1>
+        <!-- सर्च और प्राइस फिल्टर बॉक्स -->
+        <div class="filter-container">
+            <input type="text" id="searchBar" placeholder="लैपटॉप का नाम ढूंढें...">
+            <div class="price-inputs">
+                <input type="number" id="minPrice" placeholder="कम से कम ₹">
+                <input type="number" id="maxPrice" placeholder="ज्यादा से ज्यादा ₹">
+            </div>
         </div>
     </header>
 
-    <!-- 2. मुख्य हीरो बैनर -->
-    <section class="hero">
-        <h1>Top-Quality Second Hand Laptops</h1>
-        <p>Tested, Certified, and Pocket-Friendly Prices with Warranty!</p>
-    </section>
+    <!-- यहाँ सारे लैपटॉप दिखाई देंगे -->
+    <main id="laptopContainer" class="laptop-grid"></main>
 
-    <!-- 3. सभी 8 लैपटॉप्स का ग्रिड -->
-    <section class="products-section">
-        <h2 class="section-title">Available Stocks 🔥</h2>
-        
-        <div class="products-grid">
-            <!-- लैपटॉप 1 -->
-            <div class="laptop-card">
-                <div class="badge">Best Seller</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>ThinkPad T480s</h3>
-                <p class="specs">Core i5 8th Gen | 16GB RAM | 512GB SSD</p>
-                <div class="price-box">
-                    <span class="old-price">₹45,000</span>
-                    <span class="new-price">₹18,500</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('ThinkPad T480s', '₹18,500')">⚡ Book Order Now</button>
-            </div>
-
-            <!-- लैपटॉप 2 -->
-            <div class="laptop-card">
-                <div class="badge">Super Deal</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>Dell Latitude 7490</h3>
-                <p class="specs">Core i7 8th Gen | 8GB RAM | 256GB SSD</p>
-                <div class="price-box">
-                    <span class="old-price">₹52,000</span>
-                    <span class="new-price">₹19,999</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('Dell Latitude 7490', '₹19,999')">⚡ Book Order Now</button>
-            </div>
-
-            <!-- लैपटॉप 3 -->
-            <div class="laptop-card">
-                <div class="badge" style="background-color: #00ffcc; color: #0f111a;">Premium</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>HP EliteBook 840 G5</h3>
-                <p class="specs">Core i5 8th Gen | 16GB RAM | 256GB SSD | Touch</p>
-                <div class="price-box">
-                    <span class="old-price">₹48,000</span>
-                    <span class="new-price">₹21,500</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('HP EliteBook 840 G5', '₹21,500')">⚡ Book Order Now</button>
-            </div>
-
-            <!-- लैपटॉप 4 -->
-            <div class="laptop-card">
-                <div class="badge" style="background-color: #ffb703;">Hot Choice</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>Apple MacBook Air M1</h3>
-                <p class="specs">M1 Chip | 8GB RAM | 256GB SSD | Retina</p>
-                <div class="price-box">
-                    <span class="old-price">₹85,000</span>
-                    <span class="new-price">₹42,000</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('Apple MacBook Air M1', '₹42,000')">⚡ Book Order Now</button>
-            </div>
-
-            <!-- लैपटॉप 5 -->
-            <div class="laptop-card">
-                <div class="badge">90% New</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>Asus Vivobook 14</h3>
-                <p class="specs">Ryzen 5 5500U | 8GB RAM | 512GB SSD</p>
-                <div class="price-box">
-                    <span class="old-price">₹38,000</span>
-                    <span class="new-price">₹17,999</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('Asus Vivobook 14', '₹17,999')">⚡ Book Order Now</button>
-            </div>
-
-            <!-- लैपटॉप 6 -->
-            <div class="laptop-card">
-                <div class="badge">Top Deal</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>Lenovo IdeaPad Slim 3</h3>
-                <p class="specs">Core i3 11th Gen | 8GB RAM | 512GB SSD</p>
-                <div class="price-box">
-                    <span class="old-price">₹36,000</span>
-                    <span class="new-price">₹16,500</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('Lenovo IdeaPad Slim 3', '₹16,500')">⚡ Book Order Now</button>
-            </div>
-
-            <!-- लैपटॉप 7 -->
-            <div class="laptop-card">
-                <div class="badge">Budget King</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>Acer Aspire 3</h3>
-                <p class="specs">AMD Athlon | 4GB RAM | 256GB SSD</p>
-                <div class="price-box">
-                    <span class="old-price">₹28,000</span>
-                    <span class="new-price">₹11,999</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('Acer Aspire 3', '₹11,999')">⚡ Book Order Now</button>
-            </div>
-
-            <!-- लैपटॉप 8 -->
-            <div class="laptop-card">
-                <div class="badge">Heavy Duty</div>
-                <img src="https://unsplash.com" alt="Laptop">
-                <h3>HP ProBook 440 G6</h3>
-                <p class="specs">Core i5 8th Gen | 8GB RAM | 512GB SSD</p>
-                <div class="price-box">
-                    <span class="old-price">₹46,000</span>
-                    <span class="new-price">₹19,500</span>
-                </div>
-                <button class="order-btn" onclick="openOrderModal('HP ProBook 440 G6', '₹19,500')">⚡ Book Order Now</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. पॉप-अप बुकिंग फॉर्म -->
+    <!-- ऑर्डर करने के लिए पॉपअप फॉर्म (Modal) -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeOrderModal()">&times;</span>
-            <h2>Confirm Your Order 🛒</h2>
-            <p id="modalLaptopInfo" style="color: #00ffcc; font-weight: bold;"></p>
+            <h2>Confirm Your Order</h2>
+            <p id="modalLaptopInfo"></p>
             
-            <form id="bookingForm" onsubmit="submitOrder(event)">
+            <form id="bookingForm">
                 <input type="text" id="custName" placeholder="Enter Your Full Name" required>
                 <input type="tel" id="custPhone" placeholder="Enter WhatsApp Number" required>
                 <textarea id="custAddress" placeholder="Enter Delivery Full Address" rows="4" required></textarea>
-                
-                <button type="submit" class="submit-booking">📲 Complete Booking via WhatsApp</button>
+                <button type="submit" class="submit-booking">Complete Booking via WhatsApp</button>
+                <button type="button" class="close-btn" onclick="closeModal()">Cancel</button>
             </form>
         </div>
     </div>
 
-    <!-- सही जावास्क्रिप्ट टैग -->
     <script src="script.js"></script>
 </body>
 </html>
