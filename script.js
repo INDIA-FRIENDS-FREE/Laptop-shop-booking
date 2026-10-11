@@ -1,11 +1,11 @@
- // नई काम करने वाली पीएनजी इमेजेस के साथ डेटा
+ // बिल्कुल पक्के और कभी न बंद होने वाले इमेज लिंक्स के साथ डेटाबेस
 const allLaptops = [
-    { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best", image: "https://officialosim.com", stock: "🔥 Only 2 Left!" },
-    { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal", image: "https://officialosim.com", stock: "⚡ Selling Fast" },
-    { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best", image: "https://officialosim.com", stock: "🔥 Only 1 Left!" },
-    { id: 4, name: "Apple MacBook Air M1", price: 46500, specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", badge: "apple", image: "https://officialosim.com", stock: "🍏 Premium Quality" },
-    { id: 5, name: "Apple MacBook Pro M2", price: 68000, specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", badge: "apple", image: "https://officialosim.com", stock: "🔥 In High Demand" },
-    { id: 6, name: "Lenovo ThinkPad L14", price: 24500, specs: "Ryzen 5 | 8GB RAM | 512GB SSD", badge: "deal", image: "https://officialosim.com", stock: "⚡ 3 Items Left" }
+    { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best", image: "https://picsum.photos", stock: "🔥 Only 2 Left!" },
+    { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal", image: "https://picsum.photos", stock: "⚡ Selling Fast" },
+    { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best", image: "https://picsum.photos", stock: "🔥 Only 1 Left!" },
+    { id: 4, name: "Apple MacBook Air M1", price: 46500, specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", badge: "apple", image: "https://picsum.photos", stock: "🍏 Premium Quality" },
+    { id: 5, name: "Apple MacBook Pro M2", price: 68000, specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", badge: "apple", image: "https://picsum.photos", stock: "🔥 In High Demand" },
+    { id: 6, name: "Lenovo ThinkPad L14", price: 24500, specs: "Ryzen 5 | 8GB RAM | 512GB SSD", badge: "deal", image: "https://picsum.photos", stock: "⚡ 3 Items Left" }
 ];
 
 // दोनों भाषाओं का डेटाबेस (FAQ Dictionary)
@@ -13,7 +13,7 @@ const faqData = {
     hi: {
         title: "❓ About Our Shop & FAQ (अक्सर पूछे जाने वाले सवाल)",
         items: [
-            { q: "Q1: क्या ये लैपटॉप बिल्कुल ठीक काम करते हैं?", a: "Ans: जी हाँ! हमारे सभी लैपटॉप्स को इंजीनियर्स द्वारा 25+ क्वालिटी चेक पॉइंट्स पर टेस्ट किया जाता है। स्क्रीन, बैटरी, कीबोर्ड सब कुछ परफेक्ट वर्किंग कंडीशन में होता है।" },
+            { q: "Q1: क्या ये लैपटॉप बिल्कुल ठीक काम करते हैं?", a: "Ans: जी हाँ! हमारे सभी लैपटॉप्स को इंजीनियर्स द्वारा 25+ क्वालिटी चेक पॉइंट्स पर test किया जाता है। स्क्रीन, बैटरी, कीबोर्ड सब कुछ परफेक्ट वर्किंग कंडीशन में होता है।" },
             { q: "Q2: ऑर्डर कैसे बुक करें और डिलीवरी कैसे होगी?", a: "Ans: आपको जो लैपटॉप पसंद आए, उसके 'अभी खरीदें' बटन पर क्लिक करें, अपना नाम-पता भरें। आपकी डिटेल्स सीधे हमारे WhatsApp पर आ जाएंगी और हम आपसे संपर्क करके कैश ऑन डिलीवरी भेज देंगे।" },
             { q: "Q3: अगर लैपटॉप में कोई दिक्कत आई तो?", a: "Ans: हम अपने हर लैपटॉप पर 6 महीने की फुल वारंटी (6-Month Warranty) देते हैं, ताकि आप बिना किसी फिक्र के लैपटॉप इस्तेमाल कर सकें।" }
         ]
@@ -32,21 +32,24 @@ let selectedLaptop = null;
 let generatedCode = ""; 
 let currentRotation = 0; 
 
+// बिना एरर और झिम-झिम वाला साफ़ सुथरा डिस्प्ले फंक्शन
 function displayLaptops(laptops) {
     const container = document.getElementById('laptopContainer');
     container.innerHTML = ""; 
+    
     if(laptops.length === 0) {
         container.innerHTML = "<p style='grid-column: 1/-1; text-align:center; font-size:18px;'>Oops! कोई लैपटॉप नहीं मिला।</p>";
         return;
     }
+    
     laptops.forEach(laptop => {
         const card = document.createElement('div');
         card.className = 'laptop-card';
         let badgeText = laptop.badge === 'best' ? "🔥 Best Seller" : laptop.badge === 'deal' ? "⚡ Super Deal" : "🍏 Apple Premium";
-        // फॉलबैक इमेज के साथ सेफ इमेज रेंडरिंग
+        
         card.innerHTML = `
             <span class="badge ${laptop.badge}">${badgeText}</span>
-            <img src="${laptop.image}" alt="${laptop.name}" class="laptop-img" onerror="this.src='https://officialosim.com'">
+            <img src="${laptop.image}" alt="${laptop.name}" class="laptop-img">
             <h3>${laptop.name}</h3>
             <p class="specs">${laptop.specs}</p>
             <div><span class="stock-alert">${laptop.stock}</span></div>
@@ -61,6 +64,7 @@ function filterLaptops() {
     const searchTxt = document.getElementById('searchBar').value.toLowerCase();
     const minP = parseFloat(document.getElementById('minPrice').value) || 0;
     const maxP = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+    
     const filtered = allLaptops.filter(laptop => {
         const matchesName = laptop.name.toLowerCase().includes(searchTxt) || laptop.specs.toLowerCase().includes(searchTxt);
         const matchesPrice = laptop.price >= minP && laptop.price <= maxP;
@@ -68,11 +72,12 @@ function filterLaptops() {
     });
     displayLaptops(filtered);
 }
+
 document.getElementById('searchBar').addEventListener('input', filterLaptops);
 document.getElementById('minPrice').addEventListener('input', filterLaptops);
 document.getElementById('maxPrice').addEventListener('input', filterLaptops);
 
-// भाषा बदलने का डायनामिक फंक्शन
+// भाषा बदलने का डायनामिक फंक्शन (बटन हाईलाइट के साथ)
 function switchLanguage(lang) {
     document.getElementById('faqTitle').innerText = faqData[lang].title;
     const container = document.getElementById('faqContainer');
@@ -85,10 +90,16 @@ function switchLanguage(lang) {
         container.appendChild(div);
     });
 
-    // एक्टिव बटन की स्टाइल बदलने के लिए
-    const buttons = document.querySelectorAll('.lang-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    // बटन्स एक्टिव-इनएक्टिव लुक सेट करना
+    const btnHi = document.getElementById('btnHi');
+    const btnEn = document.getElementById('btnEn');
+    if (lang === 'hi') {
+        btnHi.classList.add('active');
+        btnEn.classList.remove('active');
+    } else {
+        btnEn.classList.add('active');
+        btnHi.classList.remove('active');
+    }
 }
 
 // स्पिन लॉजिक
@@ -96,7 +107,7 @@ let canSpin = true;
 function spinWheel() {
     if (!canSpin) {
         document.getElementById('spinResult').style.color = "#dc3545";
-        document.getElementById('spinResult').innerText = "❌ आप अपना फाइनल इनाम और कोड जीत चुके हैं!";
+        document.getElementById('spinResult').innerText = "❌ आप अपना फाइनल इनाम और कूट कोड जीत चुके हैं!";
         return;
     }
     const wheel = document.getElementById('wheel');
@@ -162,6 +173,6 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     closeModal();
 });
 
-// पहली बार पेज खुलने पर लैपटॉप्स और डिफ़ॉल्ट हिंदी FAQ सेट करें
+// पहली बार लोड करने का सेटअप
 displayLaptops(allLaptops);
 switchLanguage('hi');

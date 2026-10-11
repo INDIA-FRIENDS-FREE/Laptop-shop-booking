@@ -40,10 +40,10 @@ header {
 .review-text { font-style: italic; font-size: 13.5px; color: #555; margin: 0 0 5px 0; }
 .review-author { font-weight: bold; font-size: 12px; color: #333; margin: 0; }
 
-/* लैपटॉप कार्ड और बिल्कुल सही दिखने वाली इमेजेस */
+/* लैपटॉप कार्ड और सुधरा हुआ इमेज स्टाइल */
 .laptop-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; position: relative; transition: transform 0.3s; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
 .laptop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-.laptop-img { width: 100%; height: 160px; object-fit: contain; border-radius: 8px; margin-top: 25px; background: transparent; }
+.laptop-img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-top: 25px; background: #e9ecef; }
 .badge { position: absolute; top: 15px; left: 15px; padding: 5px 10px; font-size: 12px; font-weight: bold; color: white; border-radius: 20px; z-index: 5; }
 .badge.best { background: #ff5722; } .badge.deal { background: #e91e63; } .badge.apple { background: #000; }
 .laptop-card h3 { margin: 15px 0 5px 0; font-size: 1.2rem; }
@@ -52,7 +52,7 @@ header {
 .price { font-size: 22px; color: #28a745; font-weight: bold; margin: 10px 0; }
 .buy-btn { background: linear-gradient(135deg, #007bff, #0056b3); color: white; border: none; padding: 12px; border-radius: 25px; cursor: pointer; font-weight: bold; width: 100%; }
 
-/* भाषा कस्टमाइजेशन के साथ FAQ स्टाइल */
+/* FAQ स्टाइल */
 .about-faq-section { max-width: 1260px; margin: 30px auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 .faq-header-box { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 2px solid #eee; padding-bottom: 15px; gap: 15px; }
 .faq-header-box h2 { color: #1e3c72; margin: 0; font-size: 1.4rem; }
@@ -63,7 +63,7 @@ header {
 .faq-item h4 { margin: 0 0 5px 0; font-size: 1.1rem; color: #111; font-weight: 600; }
 .faq-item p { margin: 0; color: #555; font-size: 0.95rem; line-height: 1.5; }
 
-/* असली आइकन्स और आईडी के साथ नया फुटर सीएसएस */
+/* फुटर स्टाइल */
 footer { background-color: #1a1a1a; color: #ccc; padding: 40px 20px 20px 20px; margin-top: 50px; font-size: 14px; }
 .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid #333; }
 .footer-about { flex: 2; min-width: 250px; }
