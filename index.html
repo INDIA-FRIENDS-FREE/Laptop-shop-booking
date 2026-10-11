@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SECOND HAND LAPTOP SHOP</title>
     <link rel="stylesheet" href="style.css">
-    <!-- लोगो (Icons) के लिए FontAwesome CSS लिंक -->
+    <!-- लोगो और सोशल आइकन्स के लिए सबसे ज़रूरी CSS लिंक -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
@@ -28,14 +28,17 @@
         </div>
     </header>
 
+    <!-- 6 महीने की वारंटी का कड़क बैनर -->
     <div class="warranty-banner">
         <h2>🛡️ 6-Month Replacement Warranty On All Laptops 🛡️</h2>
         <p>100% Tested & Certified Second Hand Laptops | Certified Technicians Checked</p>
     </div>
 
     <div class="main-layout">
+        <!-- लैपटॉप की लिस्ट यहाँ दिखेगी -->
         <main id="laptopContainer" class="laptop-grid"></main>
 
+        <!-- राइट साइड का स्पिन व्हील और रिव्यूज -->
         <aside class="sidebar-section">
             <div class="spin-section">
                 <h3>🎁 लकी स्पिन: लैपटॉप डिस्काउंट जीतें!</h3>
@@ -43,12 +46,12 @@
                 <div class="wheel-box">
                     <div class="wheel-pointer">👇</div>
                     <div id="wheel" class="wheel">
-                        <div class="segment" style="transform: rotate(0deg)"><span>₹400 Off</span></div>
-                        <div class="segment" style="transform: rotate(60deg)"><span>Mouse (1 More)</span></div>
-                        <div class="segment" style="transform: rotate(120deg)"><span>₹600 Off</span></div>
-                        <div class="segment" style="transform: rotate(180deg)"><span>Bag (1 More)</span></div>
-                        <div class="segment" style="transform: rotate(240deg)"><span>₹550 Off</span></div>
-                        <div class="segment" style="transform: rotate(300deg)"><span>Keyboard (1 More)</span></div>
+                        <div class="segment" style="transform: rotate(0deg)"><span>(More 1) Keyboard</span></div>
+                        <div class="segment" style="transform: rotate(60deg)"><span>₹400 Off</span></div>
+                        <div class="segment" style="transform: rotate(120deg)"><span>(More 1) Mouse</span></div>
+                        <div class="segment" style="transform: rotate(180deg)"><span>₹600 Off</span></div>
+                        <div class="segment" style="transform: rotate(240deg)"><span>(More 1) Bag</span></div>
+                        <div class="segment" style="transform: rotate(300deg)"><span>₹550 Off</span></div>
                     </div>
                 </div>
                 <button id="spinBtn" onclick="spinWheel()">व्हील घुमाएं 🎯</button>
@@ -69,15 +72,12 @@
     <section class="about-faq-section">
         <div class="faq-header-box">
             <h2 id="faqTitle">❓ About Our Shop & FAQ (अक्सर पूछे जाने वाले सवाल)</h2>
-            <!-- भाषा स्विचर बटन्स -->
             <div class="lang-switch-box">
                 <button class="lang-btn active" id="btnHi" onclick="switchLanguage('hi')">Hindi 🇮🇳</button>
                 <button class="lang-btn" id="btnEn" onclick="switchLanguage('en')">English 🇬🇧</button>
             </div>
         </div>
-        <div id="faqContainer" class="faq-container">
-            <!-- जावास्क्रिप्ट से भाषा के आधार पर सवाल यहाँ बदलेंगे -->
-        </div>
+        <div id="faqContainer" class="faq-container"></div>
     </section>
 
     <!-- सोशल मीडिया आईडी और लोगो वाला प्रोफेशनल फुटर -->
@@ -111,6 +111,7 @@
         </div>
     </footer>
 
+    <!-- पॉपअप फॉर्म -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <h2>🛒 Confirm Your Order</h2>

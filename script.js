@@ -5,7 +5,7 @@
         price: 18500, 
         specs: "i5 8th Gen | 16GB RAM | 512GB SSD", 
         badge: "best", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#1a1a1a"/><rect x="23" y="13" width="54" height="32" fill="#000000"/><circle cx="50" cy="29" r="1.5" fill="#d9534f"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><path d="M 40 48 L 43 51 L 57 51 L 60 48 Z" fill="#1a1a1a"/><text x="50" y="32" fill="#333" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>`, 
+        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#1a1a1a"/><rect x="23" y="13" width="54" height="32" fill="#000000"/><circle cx="50" cy="29" r="1.5" fill="#d9534f"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><path d="M 40 48 L 43 51 L 57 51 L 60 48 Z" fill="#1a1a1a"/><text x="50" y="32" fill="#555" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>', 
         stock: "🔥 Only 2 Left!" 
     },
     { 
@@ -14,7 +14,7 @@
         price: 16500, 
         specs: "i5 8th Gen | 16GB RAM | 256GB SSD", 
         badge: "deal", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#3a3f44"/><rect x="23" y="13" width="54" height="32" fill="#f8f9fa"/><circle cx="50" cy="29" r="6" fill="none" stroke="#007bff" stroke-width="1"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><text x="50" y="31" fill="#007bff" font-size="5" font-family="sans-serif" font-weight="bold" text-anchor="middle">DELL</text></svg>`, 
+        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#3a3f44"/><rect x="23" y="13" width="54" height="32" fill="#f8f9fa"/><circle cx="50" cy="29" r="6" fill="none" stroke="#007bff" stroke-width="1"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><text x="50" y="31" fill="#007bff" font-size="5" font-family="sans-serif" font-weight="bold" text-anchor="middle">DELL</text></svg>', 
         stock: "⚡ Selling Fast" 
     },
     { 
@@ -23,7 +23,7 @@
         price: 22000, 
         specs: "i7 8th Gen | 16GB RAM | 512GB SSD", 
         badge: "best", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#d1d5db"/><rect x="23" y="13" width="54" height="32" fill="#ffffff"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#9ca3af"/><text x="50" y="32" fill="#718096" font-size="7" font-family="sans-serif" font-style="italic" font-weight="bold" text-anchor="middle">hp</text></svg>`, 
+        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#d1d5db"/><rect x="23" y="13" width="54" height="32" fill="#ffffff"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#9ca3af"/><text x="50" y="32" fill="#718096" font-size="7" font-family="sans-serif" font-style="italic" font-weight="bold" text-anchor="middle">hp</text></svg>', 
         stock: "🔥 Only 1 Left!" 
     },
     { 
@@ -32,7 +32,7 @@
         price: 46500, 
         specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", 
         badge: "apple", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="3" fill="#e2e8f0"/><rect x="22" y="12" width="56" height="34" fill="#ffffff"/><path d="M 50 25 Q 48 25 48 28 Q 48 31 50 31 Q 52 31 52 28 Q 52 25 50 25 Z M 51 23 Q 52 22 51 21 Q 50 22 50 23 Z" fill="#a0aec0"/><rect x="10" y="48" width="80" height="3" rx="1" fill="#cbd5e1"/></svg>`, 
+        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="3" fill="#e2e8f0"/><rect x="22" y="12" width="56" height="34" fill="#ffffff"/><path d="M 50 25 Q 48 25 48 28 Q 48 31 50 31 Q 52 31 52 28 Q 52 25 50 25 Z M 51 23 Q 52 22 51 21 Q 50 22 50 23 Z" fill="#a0aec0"/><rect x="10" y="48" width="80" height="3" rx="1" fill="#cbd5e1"/></svg>', 
         stock: "🍏 Premium Quality" 
     },
     { 
@@ -41,7 +41,7 @@
         price: 68000, 
         specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", 
         badge: "apple", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="3" fill="#64748b"/><rect x="22" y="12" width="56" height="34" fill="#0f172a"/><path d="M 50 25 Q 48 25 48 28 Q 48 31 50 31 Q 52 31 52 28 Q 52 25 50 25 Z M 51 23 Q 52 22 51 21 Q 50 22 50 23 Z" fill="#94a3b8"/><rect x="10" y="48" width="80" height="3" rx="1" fill="#475569"/></svg>`, 
+        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="3" fill="#64748b"/><rect x="22" y="12" width="56" height="34" fill="#0f172a"/><path d="M 50 25 Q 48 25 48 28 Q 48 31 50 31 Q 52 31 52 28 Q 52 25 50 25 Z M 51 23 Q 52 22 51 21 Q 50 22 50 23 Z" fill="#94a3b8"/><rect x="10" y="48" width="80" height="3" rx="1" fill="#475569"/></svg>', 
         stock: "🔥 In High Demand" 
     },
     { 
@@ -50,7 +50,7 @@
         price: 24500, 
         specs: "Ryzen 5 | 8GB RAM | 512GB SSD", 
         badge: "deal", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#262626"/><rect x="23" y="13" width="54" height="32" fill="#0a0a0a"/><circle cx="50" cy="29" r="1.5" fill="#e11d48"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#404040"/><text x="50" y="32" fill="#262626" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>`, 
+        imageHtml: '<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#262626"/><rect x="23" y="13" width="54" height="32" fill="#0a0a0a"/><circle cx="50" cy="29" r="1.5" fill="#e11d48"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#404040"/><text x="50" y="32" fill="#555" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>', 
         stock: "⚡ 3 Items Left" 
     }
 ];
@@ -119,7 +119,7 @@ function filterLaptops() {
     displayLaptops(filtered);
 }
 
-// सुरक्षित इवेंट लिशनर बाइंडिंग
+// सेफ लिशनर्स
 if(document.getElementById('searchBar')) document.getElementById('searchBar').addEventListener('input', filterLaptops);
 if(document.getElementById('minPrice')) document.getElementById('minPrice').addEventListener('input', filterLaptops);
 if(document.getElementById('maxPrice')) document.getElementById('maxPrice').addEventListener('input', filterLaptops);
@@ -167,7 +167,7 @@ function spinWheel() {
     document.getElementById('spinResult').style.color = "#28a745";
     document.getElementById('spinResult').innerText = "🔄 भाग्य का पहिया घूम रहा है...";
 
-    const gifts = ["₹400 Discount 💰", "Mouse 🖱️", "₹600 Discount 💵", "Bag 🎒", "₹550 Discount 💸", "Keyboard ⌨️"];
+    const gifts = ["Keyboard ⌨️", "₹400 Discount 💰", "Mouse 🖱️", "₹600 Discount 💵", "Bag 🎒", "₹550 Discount 💸"];
     const codeMap = { "Key": "LPT4", "Key6": "DSC6", "Key5": "OFF5" };
     
     const randomDegree = Math.floor(Math.random() * 360) + 1800; 
