@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SECOND HAND LAPTOP SHOP</title>
     <link rel="stylesheet" href="style.css">
-    <!-- सोशल मीडिया आइकन्स के लिए FontAwesome -->
+    <!-- लोगो (Icons) के लिए FontAwesome CSS लिंक -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
@@ -28,17 +28,14 @@
         </div>
     </header>
 
-    <!-- 6 महीने की वारंटी का ट्रस्ट बैनर -->
     <div class="warranty-banner">
         <h2>🛡️ 6-Month Replacement Warranty On All Laptops 🛡️</h2>
         <p>100% Tested & Certified Second Hand Laptops | Certified Technicians Checked</p>
     </div>
 
     <div class="main-layout">
-        <!-- लैपटॉप की लिस्ट (इमेजेस के साथ) -->
         <main id="laptopContainer" class="laptop-grid"></main>
 
-        <!-- साइडबार: स्पिन व्हील और रिव्यूज -->
         <aside class="sidebar-section">
             <div class="spin-section">
                 <h3>🎁 लकी स्पिन: लैपटॉप डिस्काउंट जीतें!</h3>
@@ -62,36 +59,28 @@
                 <h3>⭐ हमारे खुश ग्राहक (Reviews)</h3>
                 <div class="review-card">
                     <p class="review-text">"मैंने यहाँ से ThinkPad लिया, कंडीशन बिल्कुल नए जैसी है और स्पिन में मुझे ₹600 का डिस्काउंट भी मिला!"</p>
-                    <p class="review-author">👤 राहुल कुमार, दिल्ली (⭐⭐⭐⭐⭐)</p>
-                </div>
-                <div class="review-card">
-                    <p class="review-text">"मैकबुक एयर M1 बेस्ट प्राइस में मिला। WhatsApp पर बुकिंग करते ही तुरंत रिप्लाई आया। थैंक्यू भाई!"</p>
-                    <p class="review-author">👤 अमित शर्मा, मुंबई (⭐⭐⭐⭐⭐)</p>
+                    <p class="review-author">👤 राहुल कुमार, दिल्ली (⭐⭐⭐⭐•)</p>
                 </div>
             </div>
         </aside>
     </div>
 
-    <!-- अबाउट और अक्सर पूछे जाने वाले सवाल (About & FAQ Section) -->
+    <!-- भाषा बदलने के बटन्स के साथ FAQ सेक्शन -->
     <section class="about-faq-section">
-        <h2>❓ About Our Shop & FAQ (अक्सर पूछे जाने वाले सवाल)</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <h4>Q1: क्या ये लैपटॉप बिल्कुल ठीक काम करते हैं?</h4>
-                <p>Ans: जी हाँ! हमारे सभी लैपटॉप्स को इंजीनियर्स द्वारा 25+ क्वालिटी चेक पॉइंट्स पर टेस्ट किया जाता है। स्क्रीन, बैटरी, कीबोर्ड सब कुछ परफेक्ट वर्किंग कंडीशन में होता है।</p>
+        <div class="faq-header-box">
+            <h2 id="faqTitle">❓ About Our Shop & FAQ (अक्सर पूछे जाने वाले सवाल)</h2>
+            <!-- भाषा स्विचर बटन्स -->
+            <div class="lang-switch-box">
+                <button class="lang-btn active" onclick="switchLanguage('hi')">Hindi 🇮🇳</button>
+                <button class="lang-btn" onclick="switchLanguage('en')">English 🇬🇧</button>
             </div>
-            <div class="faq-item">
-                <h4>Q2: ऑर्डर कैसे बुक करें और डिलीवरी कैसे होगी?</h4>
-                <p>Ans: आपको जो लैपटॉप पसंद आए, उसके 'अभी खरीदें' बटन पर क्लिक करें, अपना नाम-पता भरें। आपकी डिटेल्स सीधे हमारे WhatsApp पर आ जाएंगी और हम आपसे संपर्क करके कैश ऑन डिलीवरी भेज देंगे।</p>
-            </div>
-            <div class="faq-item">
-                <h4>Q3: अगर लैपटॉप में कोई दिक्कत आई तो?</h4>
-                <p>Ans: हम अपने हर लैपटॉप पर 6 महीने की फुल वारंटी (6-Month Warranty) देते हैं, ताकि आप बिना किसी फिक्र के लैपटॉप इस्तेमाल कर सकें।</p>
-            </div>
+        </div>
+        <div id="faqContainer" class="faq-container">
+            <!-- जावास्क्रिप्ट से भाषा के आधार पर सवाल यहाँ बदलेंगे -->
         </div>
     </section>
 
-    <!-- बड़ी साइट्स जैसा प्रोफेशनल ब्लैक फुटर और सोशल मीडिया लिंक्स -->
+    <!-- सोशल मीडिया आईडी और लोगो वाला प्रोफेशनल फुटर -->
     <footer>
         <div class="footer-container">
             <div class="footer-about">
@@ -99,26 +88,34 @@
                 <p>हमारा मकसद आपको बेहद कम दामों में सबसे बेस्ट और भरोसेमंद रीफर्बिश्ड लैपटॉप्स देना है। पूरे भारत में सुरक्षित डिलीवरी।</p>
             </div>
             <div class="footer-social">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://instagram.com" target="_blank" class="social-btn insta"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com" target="_blank" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://youtube.com" target="_blank" class="social-btn yt"><i class="fab fa-youtube"></i></a>
+                <h3>Connect With Us</h3>
+                <div class="social-links-list">
+                    <!-- सोशल लोगो के आगे आईडी का सेटअप -->
+                    <div class="social-row">
+                        <a href="https://instagram.com" target="_blank" class="social-icon-btn insta"><i class="fab fa-instagram"></i></a>
+                        <span>@your_shop_insta</span>
+                    </div>
+                    <div class="social-row">
+                        <a href="https://facebook.com" target="_blank" class="social-icon-btn fb"><i class="fab fa-facebook-f"></i></a>
+                        <span>/your_shop_fb</span>
+                    </div>
+                    <div class="social-row">
+                        <a href="https://youtube.com" target="_blank" class="social-icon-btn yt"><i class="fab fa-youtube"></i></a>
+                        <span>YourShop_Gadgets</span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>© 2026 SECOND HAND LAPTOP SHOP. All Rights Reserved.</p>
-            <p class="developer-tag">⚡ Designed & Developed by 💻 [Your Name/Agency Name]</p>
+            <p class="developer-tag">⚡ Designed & Developed by 💻 [Your Name]</p>
         </div>
     </footer>
 
-    <!-- ऑर्डर कन्फर्मेशन पॉपअप (Modal) -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <h2>🛒 Confirm Your Order</h2>
             <p id="modalLaptopInfo"></p>
-            
             <form id="bookingForm">
                 <input type="text" id="custName" placeholder="Enter Your Full Name" required>
                 <input type="tel" id="custPhone" placeholder="Enter WhatsApp Number" required>

@@ -16,23 +16,14 @@ header {
 #searchBar { width: 300px; }
 .price-inputs input { width: 140px; }
 
-/* 6 महीने की वारंटी बैनर */
-.warranty-banner {
-    background-color: #fff3cd;
-    color: #856404;
-    text-align: center;
-    padding: 15px 20px;
-    border-bottom: 2px solid #ffeeba;
-}
-.warranty-banner h2 { margin: 0 0 5px 0; font-size: 1.5rem; font-weight: bold; }
+.warranty-banner { background-color: #fff3cd; color: #856404; text-align: center; padding: 15px 20px; border-bottom: 2px solid #ffeeba; }
+.warranty-banner h2 { margin: 0 0 5px 0; font-size: 1.4rem; font-weight: bold; }
 .warranty-banner p { margin: 0; font-size: 0.95rem; }
 
-/* लेआउट सेटिंग्स */
 .main-layout { display: flex; flex-direction: row; flex-wrap: wrap; max-width: 1300px; margin: 0 auto; padding: 20px; gap: 20px; }
 .laptop-grid { flex: 3; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; min-width: 300px; }
 .sidebar-section { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
 
-/* स्पिन व्हील स्टाइल */
 .spin-section { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border: 2px dashed #ff5722; }
 .wheel-box { position: relative; width: 200px; height: 200px; margin: 20px auto; }
 .wheel-pointer { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 24px; z-index: 10; }
@@ -43,17 +34,16 @@ header {
 #spinBtn:hover { background: #e04716; }
 .spin-result { font-size: 16px; font-weight: bold; color: #28a745; margin-top: 15px; line-height: 1.4; }
 
-/* रिव्यूज स्टाइल */
 .reviews-section { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #ddd; }
 .reviews-section h3 { margin-top: 0; color: #1e3c72; font-size: 1.2rem; text-align: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
 .review-card { background: #fdfdfd; border-left: 4px solid #ffcc00; padding: 10px 15px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
 .review-text { font-style: italic; font-size: 13.5px; color: #555; margin: 0 0 5px 0; }
 .review-author { font-weight: bold; font-size: 12px; color: #333; margin: 0; }
 
-/* लैपटॉप कार्ड, डमी इमेजेस और स्टॉक अलर्ट */
+/* लैपटॉप कार्ड और बिल्कुल सही दिखने वाली इमेजेस */
 .laptop-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; position: relative; transition: transform 0.3s; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
 .laptop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-.laptop-img { width: 100%; height: 160px; object-fit: contain; border-radius: 8px; margin-top: 25px; background: #fff; }
+.laptop-img { width: 100%; height: 160px; object-fit: contain; border-radius: 8px; margin-top: 25px; background: transparent; }
 .badge { position: absolute; top: 15px; left: 15px; padding: 5px 10px; font-size: 12px; font-weight: bold; color: white; border-radius: 20px; z-index: 5; }
 .badge.best { background: #ff5722; } .badge.deal { background: #e91e63; } .badge.apple { background: #000; }
 .laptop-card h3 { margin: 15px 0 5px 0; font-size: 1.2rem; }
@@ -62,31 +52,35 @@ header {
 .price { font-size: 22px; color: #28a745; font-weight: bold; margin: 10px 0; }
 .buy-btn { background: linear-gradient(135deg, #007bff, #0056b3); color: white; border: none; padding: 12px; border-radius: 25px; cursor: pointer; font-weight: bold; width: 100%; }
 
-/* अबाउट और FAQ सेक्शन */
+/* भाषा कस्टमाइजेशन के साथ FAQ स्टाइल */
 .about-faq-section { max-width: 1260px; margin: 30px auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.about-faq-section h2 { color: #1e3c72; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.5rem; }
-.faq-container { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-.faq-item h4 { margin: 0 0 5px 0; font-size: 1.1rem; color: #333; }
-.faq-item p { margin: 0; color: #666; font-size: 0.95rem; line-height: 1.5; }
+.faq-header-box { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 2px solid #eee; padding-bottom: 15px; gap: 15px; }
+.faq-header-box h2 { color: #1e3c72; margin: 0; font-size: 1.4rem; }
+.lang-switch-box { display: flex; gap: 8px; }
+.lang-btn { padding: 6px 15px; font-weight: bold; border: 1px solid #1e3c72; background: white; color: #1e3c72; border-radius: 20px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+.lang-btn.active, .lang-btn:hover { background: #1e3c72; color: white; }
+.faq-container { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.faq-item h4 { margin: 0 0 5px 0; font-size: 1.1rem; color: #111; font-weight: 600; }
+.faq-item p { margin: 0; color: #555; font-size: 0.95rem; line-height: 1.5; }
 
-/* बड़ी वेबसाइट जैसा प्रोफेशनल ब्लैक फुटर */
+/* असली आइकन्स और आईडी के साथ नया फुटर सीएसएस */
 footer { background-color: #1a1a1a; color: #ccc; padding: 40px 20px 20px 20px; margin-top: 50px; font-size: 14px; }
-.footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; padding-bottom: 30px; border-bottom: 1px solid #333; }
+.footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid #333; }
 .footer-about { flex: 2; min-width: 250px; }
-.footer-about h3 { color: white; margin-top: 0; }
-.footer-about p { line-height: 1.6; color: #999; }
-.footer-social { flex: 1; min-width: 200px; text-align: center; }
-.footer-social h3 { color: white; margin-top: 0; }
-.social-icons { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
-.social-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: white; text-decoration: none; font-size: 18px; transition: all 0.3s ease; }
-.social-btn.insta { background: #e1306c; }
-.social-btn.fb { background: #3b5998; }
-.social-btn.yt { background: #ff0000; }
-.social-btn:hover { transform: scale(1.1); filter: brightness(1.2); }
+.footer-about h3 { color: white; margin-top: 0; font-size: 1.3rem; }
+.footer-about p { line-height: 1.6; color: #999; margin: 0; }
+.footer-social { flex: 1; min-width: 260px; }
+.footer-social h3 { color: white; margin-top: 0; font-size: 1.3rem; margin-bottom: 15px; }
+.social-links-list { display: flex; flex-direction: column; gap: 12px; }
+.social-row { display: flex; align-items: center; gap: 12px; color: #b3b3b3; font-size: 14.5px; font-weight: 500; }
+.social-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; color: white; text-decoration: none; font-size: 16px; transition: transform 0.2s; }
+.social-icon-btn.insta { background: #e1306c; }
+.social-icon-btn.fb { background: #3b5998; }
+.social-icon-btn.yt { background: #ff0000; }
+.social-icon-btn:hover { transform: scale(1.1); }
 .footer-bottom { text-align: center; padding-top: 20px; color: #666; font-size: 13px; }
 .developer-tag { color: #ffcc00 !important; font-weight: bold; margin-top: 5px; }
 
-/* Modal */
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000; }
 .modal-content { background: white; padding: 30px; border-radius: 15px; width: 90%; max-width: 420px; text-align: center; }
 .modal-content input, .modal-content textarea { width: 100%; padding: 12px; margin: 10px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 8px; }
