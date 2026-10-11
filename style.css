@@ -1,5 +1,4 @@
-/* 1. बेसिक सेटिंग्स और वेरिएबल्स */
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,11 +6,10 @@
 }
 
 body {
-    background-color: #0f111a; /* डार्क प्रीमियम थीम */
+    background-color: #0f111a;
     color: #ffffff;
 }
 
-/* 2. टॉप नेविगेशन बार */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -27,7 +25,7 @@ body {
 }
 
 .logo span {
-    color: #00ffcc; /* नियॉन ग्रीन रंग */
+    color: #00ffcc;
 }
 
 .shop-contact span {
@@ -36,7 +34,6 @@ body {
     color: #a0aec0;
 }
 
-/* 3. हीरो बैनर */
 .hero {
     text-align: center;
     padding: 60px 20px;
@@ -46,7 +43,6 @@ body {
 .hero h1 {
     font-size: 42px;
     margin-bottom: 15px;
-    color: #ffffff;
 }
 
 .hero p {
@@ -54,7 +50,6 @@ body {
     font-size: 18px;
 }
 
-/* 4. लैपटॉप की रंग-बिरंगी लिस्टिंग (Grid) */
 .products-section {
     padding: 40px;
 }
@@ -73,7 +68,6 @@ body {
     margin: 0 auto;
 }
 
-/* 5. लैपटॉप कार्ड डिजाइन */
 .laptop-card {
     background-color: #161925;
     border-radius: 12px;
@@ -85,7 +79,7 @@ body {
 
 .laptop-card:hover {
     transform: translateY(-5px);
-    border-color: #00ffcc; /* होवर करने पर नियॉन बॉर्डर */
+    border-color: #00ffcc;
 }
 
 .badge {
@@ -98,6 +92,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     border-radius: 6px;
+    z-index: 10;
 }
 
 .laptop-card img {
@@ -135,7 +130,6 @@ body {
     color: #00ffcc;
 }
 
-/* ऑर्डर बटन */
 .order-btn {
     width: 100%;
     background-color: #00ffcc;
@@ -153,7 +147,6 @@ body {
     background-color: #00ccaa;
 }
 
-/* 6. जादुई ऑर्डर बुकिंग फॉर्म (Modal Pop-up) */
 .modal {
     display: none; 
     position: fixed;
@@ -186,14 +179,6 @@ body {
     cursor: pointer;
 }
 
-.close-btn:hover {
-    color: white;
-}
-
-.modal h2 {
-    margin-bottom: 15px;
-}
-
 form input, form textarea {
     width: 100%;
     padding: 12px;
@@ -212,7 +197,7 @@ form input:focus, form textarea:focus {
 
 .submit-booking {
     width: 100%;
-    background-color: #25d366; /* व्हाट्सएप ग्रीन */
+    background-color: #25d366;
     color: white;
     border: none;
     padding: 14px;
@@ -221,8 +206,4 @@ form input:focus, form textarea:focus {
     border-radius: 8px;
     margin-top: 20px;
     cursor: pointer;
-}
-
-.submit-booking:hover {
-    background-color: #1ebd54;
 }
