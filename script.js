@@ -1,13 +1,11 @@
- // बिल्कुल पक्के और बिना लिंक वाले SVG ग्राफिक्स कोड के साथ लैपटॉप डेटाबेस
-const allLaptops = [
+ const allLaptops = [
     { 
         id: 1, 
         name: "ThinkPad T480s", 
         price: 18500, 
         specs: "i5 8th Gen | 16GB RAM | 512GB SSD", 
         badge: "best", 
-        // यह सीधे कोड से स्क्रीन पर ब्लैक/रेड थिंकपैड डिज़ाइन बना देगा
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#1a1a1a"/><rect x="23" y="13" width="54" height="32" fill="#000000"/><circle x="50" y="29" r="1.5" fill="#d9534f"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><path d="M 40 48 L 43 51 L 57 51 L 60 48 Z" fill="#1a1a1a"/><text x="50" y="32" fill="#333" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>`, 
+        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#1a1a1a"/><rect x="23" y="13" width="54" height="32" fill="#000000"/><circle cx="50" cy="29" r="1.5" fill="#d9534f"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><path d="M 40 48 L 43 51 L 57 51 L 60 48 Z" fill="#1a1a1a"/><text x="50" y="32" fill="#333" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>`, 
         stock: "🔥 Only 2 Left!" 
     },
     { 
@@ -16,7 +14,7 @@ const allLaptops = [
         price: 16500, 
         specs: "i5 8th Gen | 16GB RAM | 256GB SSD", 
         badge: "deal", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#3a3f44"/><rect x="23" y="13" width="54" height="32" fill="#f8f9fa"/><circle x="50" y="29" r="6" fill="none" stroke="#007bff" stroke-width="1"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><text x="50" y="31" fill="#007bff" font-size="5" font-family="sans-serif" font-weight="bold" text-anchor="middle">DELL</text></svg>`, 
+        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#3a3f44"/><rect x="23" y="13" width="54" height="32" fill="#f8f9fa"/><circle cx="50" cy="29" r="6" fill="none" stroke="#007bff" stroke-width="1"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#2b2b2b"/><text x="50" y="31" fill="#007bff" font-size="5" font-family="sans-serif" font-weight="bold" text-anchor="middle">DELL</text></svg>`, 
         stock: "⚡ Selling Fast" 
     },
     { 
@@ -52,12 +50,11 @@ const allLaptops = [
         price: 24500, 
         specs: "Ryzen 5 | 8GB RAM | 512GB SSD", 
         badge: "deal", 
-        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#262626"/><rect x="23" y="13" width="54" height="32" fill="#0a0a0a"/><circle x="50" y="29" r="1.5" fill="#e11d48"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#404040"/><text x="50" y="32" fill="#262626" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>`, 
+        imageHtml: `<svg viewBox="0 0 100 60" width="100%" height="160"><rect x="20" y="10" width="60" height="38" rx="2" fill="#262626"/><rect x="23" y="13" width="54" height="32" fill="#0a0a0a"/><circle cx="50" cy="29" r="1.5" fill="#e11d48"/><rect x="10" y="48" width="80" height="4" rx="1" fill="#404040"/><text x="50" y="32" fill="#262626" font-size="4" font-family="sans-serif" text-anchor="middle">ThinkPad</text></svg>`, 
         stock: "⚡ 3 Items Left" 
     }
 ];
 
-// दोनों भाषाओं का डेटाबेस
 const faqData = {
     hi: {
         title: "❓ About Our Shop & FAQ (अक्सर पूछे जाने वाले सवाल)",
@@ -81,9 +78,9 @@ let selectedLaptop = null;
 let generatedCode = ""; 
 let currentRotation = 0; 
 
-// झिम-झिम (Flicker) को हमेशा के लिए रोकने वाला फिक्स्ड रेंडर फंक्शन
 function displayLaptops(laptops) {
     const container = document.getElementById('laptopContainer');
+    if (!container) return;
     container.innerHTML = ""; 
     
     if(laptops.length === 0) {
@@ -96,7 +93,6 @@ function displayLaptops(laptops) {
         card.className = 'laptop-card';
         let badgeText = laptop.badge === 'best' ? "🔥 Best Seller" : laptop.badge === 'deal' ? "⚡ Super Deal" : "🍏 Apple Premium";
         
-        // यहाँ हमने <img src> हटाकर सीधे डायनामिक कोड (laptop.imageHtml) डाल दिया है
         card.innerHTML = `
             <span class="badge ${laptop.badge}">${badgeText}</span>
             <div class="laptop-img-wrapper">${laptop.imageHtml}</div>
@@ -123,14 +119,17 @@ function filterLaptops() {
     displayLaptops(filtered);
 }
 
-document.getElementById('searchBar').addEventListener('input', filterLaptops);
-document.getElementById('minPrice').addEventListener('input', filterLaptops);
-document.getElementById('maxPrice').addEventListener('input', filterLaptops);
+// सुरक्षित इवेंट लिशनर बाइंडिंग
+if(document.getElementById('searchBar')) document.getElementById('searchBar').addEventListener('input', filterLaptops);
+if(document.getElementById('minPrice')) document.getElementById('minPrice').addEventListener('input', filterLaptops);
+if(document.getElementById('maxPrice')) document.getElementById('maxPrice').addEventListener('input', filterLaptops);
 
-// भाषा बदलने का फंक्शन
 function switchLanguage(lang) {
-    document.getElementById('faqTitle').innerText = faqData[lang].title;
+    const titleEl = document.getElementById('faqTitle');
     const container = document.getElementById('faqContainer');
+    if(!titleEl || !container) return;
+
+    titleEl.innerText = faqData[lang].title;
     container.innerHTML = "";
     
     faqData[lang].items.forEach(item => {
@@ -142,16 +141,17 @@ function switchLanguage(lang) {
 
     const btnHi = document.getElementById('btnHi');
     const btnEn = document.getElementById('btnEn');
-    if (lang === 'hi') {
-        btnHi.classList.add('active');
-        btnEn.classList.remove('active');
-    } else {
-        btnEn.classList.add('active');
-        btnHi.classList.remove('active');
+    if(btnHi && btnEn) {
+        if (lang === 'hi') {
+            btnHi.classList.add('active');
+            btnEn.classList.remove('active');
+        } else {
+            btnEn.classList.add('active');
+            btnHi.classList.remove('active');
+        }
     }
 }
 
-// स्पिन लॉजिक
 let canSpin = true; 
 function spinWheel() {
     if (!canSpin) {
@@ -161,6 +161,8 @@ function spinWheel() {
     }
     const wheel = document.getElementById('wheel');
     const btn = document.getElementById('spinBtn');
+    if(!wheel || !btn) return;
+    
     btn.disabled = true; 
     document.getElementById('spinResult').style.color = "#28a745";
     document.getElementById('spinResult').innerText = "🔄 भाग्य का पहिया घूम रहा है...";
