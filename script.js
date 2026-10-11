@@ -1,5 +1,4 @@
- // 1. सभी लैपटॉप की सूची (इसमें Apple MacBooks भी जोड़ दिए हैं)
-const allLaptops = [
+ const allLaptops = [
     { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best" },
     { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal" },
     { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best" },
@@ -11,27 +10,20 @@ const allLaptops = [
 ];
 
 let selectedLaptop = null;
+let wonGift = ""; // ग्राहक का जीता हुआ गिफ्ट स्टोर करने के लिए
 
-// 2. स्क्रीन पर शानदार कार्ड्स दिखाने का फंक्शन
+// लैपटॉप डिस्प्ले करने का फंक्शन
 function displayLaptops(laptops) {
     const container = document.getElementById('laptopContainer');
     container.innerHTML = ""; 
-
     if(laptops.length === 0) {
-        container.innerHTML = "<p style='grid-column: 1/-1; text-align:center; font-size:18px; color:#888;'>Oops! आपके बजट या सर्च के अनुसार कोई लैपटॉप नहीं मिला।</p>";
+        container.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Oops! कोई लैपटॉप नहीं मिला।</p>";
         return;
     }
-
     laptops.forEach(laptop => {
         const card = document.createElement('div');
         card.className = 'laptop-card';
-        
-        // बैज का नाम सेट करने के लिए लॉजिक
-        let badgeText = "Stock";
-        if(laptop.badge === 'best') badgeText = "🔥 Best Seller";
-        if(laptop.badge === 'deal') badgeText = "⚡ Super Deal";
-        if(laptop.badge === 'apple') badgeText = "🍏 Apple Premium";
-
+        let badgeText = laptop.badge === 'best' ? "🔥 Best Seller" : laptop.badge === 'deal' ? "⚡ Super Deal" : "🍏 Apple Premium";
         card.innerHTML = `
             <span class="badge ${laptop.badge}">${badgeText}</span>
             <h3>${laptop.name}</h3>
@@ -43,58 +35,78 @@ function displayLaptops(laptops) {
     });
 }
 
-// 3. फिल्टर करने का लॉजिक (सर्च और प्राइस रेंज)
+// सर्च और फिल्टर लॉजिक
 function filterLaptops() {
     const searchTxt = document.getElementById('searchBar').value.toLowerCase();
     const minP = parseFloat(document.getElementById('minPrice').value) || 0;
     const maxP = parseFloat(document.getElementById('maxPrice').value) || Infinity;
-
     const filtered = allLaptops.filter(laptop => {
         const matchesName = laptop.name.toLowerCase().includes(searchTxt) || laptop.specs.toLowerCase().includes(searchTxt);
         const matchesPrice = laptop.price >= minP && laptop.price <= maxP;
         return matchesName && matchesPrice;
     });
-
     displayLaptops(filtered);
 }
-
 document.getElementById('searchBar').addEventListener('input', filterLaptops);
 document.getElementById('minPrice').addEventListener('input', filterLaptops);
 document.getElementById('maxPrice').addEventListener('input', filterLaptops);
 
-// 4. पॉपअप (Modal) लॉजिक
+// स्पिन व्हील घुमाने का लॉजिक
+let hasSpun = false;
+function spinWheel() {
+    if (hasSpun) {
+        document.getElementById('spinResult').innerText = "❌ आप आज का स्पिन खेल चुके हैं!";
+        return;
+    }
+    hasSpun = true;
+    const wheel = document.getElementById('wheel');
+    const gifts = ["Free Mouse 🖱️", "₹500 Discount 💰", "Laptop Bag 🎒", "Cleaning Kit 🧼", "₹1000 Discount 💵", "Wireless Keyboard ⌨️"];
+    
+    // रैंडम स्पिन एंगल (कम से कम 5 बार पूरा घूमेगा)
+    const randomDegree = Math.floor(Math.random() * 360) + 1800; 
+    wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+    // व्हील रुकने के बाद गिफ्ट कैलकुलेट करना (4 सेकंड बाद)
+    setTimeout(() => {
+        const actualDegree = randomDegree % 360;
+        // 360 डिग्री को 6 बराबर हिस्सों (60 डिग्री प्रत्येक) में बांटा गया है
+        const index = Math.floor(((360 - actualDegree) % 360) / 60);
+        wonGift = gifts[index];
+        
+        document.getElementById('spinResult').innerHTML = `🎉 बधाई हो! आपने जीता: <strong>${wonGift}</strong><br><small>ऑर्डर करते समय यह गिफ्ट आपके साथ जुड़ जाएगा।</small>`;
+        document.getElementById('custGift').value = wonGift; // फॉर्म में गिफ्ट नाम डालना
+    }, 4000);
+}
+
+// पॉपअप फॉर्म खोलना/बंद करना
 function openModal(id) {
     selectedLaptop = allLaptops.find(l => l.id === id);
-    document.getElementById('modalLaptopInfo').innerText = `You are buying: ${selectedLaptop.name} (₹${selectedLaptop.price})`;
+    document.getElementById('modalLaptopInfo').innerText = `Buying: ${selectedLaptop.name} (₹${selectedLaptop.price})`;
     document.getElementById('orderModal').style.display = 'flex';
 }
+function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
 
-function closeModal() {
-    document.getElementById('orderModal').style.display = 'none';
-}
-
-// 5. WhatsApp पर ऑर्डर भेजने का लॉजिक
+// WhatsApp आर्डर सबमिशन
 document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
     const name = document.getElementById('custName').value;
     const phone = document.getElementById('custPhone').value;
     const address = document.getElementById('custAddress').value;
     
-    // अपना 10 अंकों का WhatsApp नंबर यहाँ डालें (91 के बाद)
-    const myWhatsAppNumber = "91XXXXXXXXXX"; 
+    // ⚠️ अपना 10 अंकों का मोबाइल नंबर यहाँ डालें (91 के बाद)
+    const myWhatsAppNumber = "919876543210"; 
 
     const message = `🚨 *नया ऑर्डर आया है!* 🚨\n\n` +
                     `💻 *लैपटॉप:* ${selectedLaptop.name}\n` +
-                    `💰 *कीमत:* ₹${selectedLaptop.price}\n\n` +
+                    `💰 *कीमत:* ₹${selectedLaptop.price}\n` +
+                    `🎁 *जीता हुआ गिफ्ट:* ${wonGift || "कोई गिफ्ट नहीं जीता"}\n\n` +
                     `👤 *ग्राहक का नाम:* ${name}\n` +
                     `📞 *WhatsApp नंबर:* ${phone}\n` +
                     `📍 *पता:* ${address}`;
 
-    const whatsappUrl = `https://wa.me{myWhatsAppNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(`https://wa.me{myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
     closeModal();
 });
 
-// पहली बार पेज लोड होने पर रन करें
+// डिफ़ॉल्ट रूप से लैपटॉप लोड करें
 displayLaptops(allLaptops);

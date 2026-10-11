@@ -9,11 +9,16 @@
 <body>
 
     <header>
-        <!-- दुकान का नया नाम -->
         <h1 class="shop-title">🔥 SECOND HAND LAPTOP SHOP 🔥</h1>
         <p class="shop-subtitle">Premium Quality Laptops at Pocket-Friendly Prices</p>
         
-        <!-- प्रीमियम लुक वाला सर्च और प्राइस फिल्टर बॉक्स -->
+        <!-- कांटेक्ट डिटेल्स बॉक्स -->
+        <div class="contact-info">
+            <span>📞 Call/WhatsApp: +91 9876543210</span> | 
+            <span>✉ Email: shop@gmail.com</span>
+        </div>
+        
+        <!-- सर्च और फिल्टर -->
         <div class="filter-container">
             <input type="text" id="searchBar" placeholder="🔍 लैपटॉप का नाम या स्पेक्स ढूंढें...">
             <div class="price-inputs">
@@ -23,10 +28,31 @@
         </div>
     </header>
 
-    <!-- यहाँ सारे लैपटॉप और नए एप्पल मैकबुक दिखाई देंगे -->
-    <main id="laptopContainer" class="laptop-grid"></main>
+    <div class="main-layout">
+        <!-- लैपटॉप की लिस्ट -->
+        <main id="laptopContainer" class="laptop-grid"></main>
 
-    <!-- ऑर्डर करने के लिए पॉपअप फॉर्म (Modal) -->
+        <!-- लकी स्पिन व्हील (गिफ्ट सेक्शन) -->
+        <aside class="spin-section">
+            <h3>🎁 लकी स्पिन: लैपटॉप के साथ गिफ्ट जीतें!</h3>
+            <p>लैपटॉप खरीदने से पहले अपनी किस्मत आज़माएं</p>
+            <div class="wheel-box">
+                <div class="wheel-pointer">👇</div>
+                <div id="wheel" class="wheel">
+                    <div class="segment" style="transform: rotate(0deg)"><span>Mouse</span></div>
+                    <div class="segment" style="transform: rotate(60deg)"><span>₹500 Off</span></div>
+                    <div class="segment" style="transform: rotate(120deg)"><span>Bag</span></div>
+                    <div class="segment" style="transform: rotate(180deg)"><span>Clean Kit</span></div>
+                    <div class="segment" style="transform: rotate(240deg)"><span>₹1000 Off</span></div>
+                    <div class="segment" style="transform: rotate(300deg)"><span>Keyboard</span></div>
+                </div>
+            </div>
+            <button id="spinBtn" onclick="spinWheel()">व्हील घुमाएं 🎯</button>
+            <p id="spinResult" class="spin-result"></p>
+        </aside>
+    </div>
+
+    <!-- ऑर्डर कन्फर्मेशन पॉपअप (Modal) -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <h2>🛒 Confirm Your Order</h2>
@@ -35,6 +61,8 @@
             <form id="bookingForm">
                 <input type="text" id="custName" placeholder="Enter Your Full Name" required>
                 <input type="tel" id="custPhone" placeholder="Enter WhatsApp Number" required>
+                <!-- ग्राहक का जीता हुआ गिफ्ट ऑटोमैटिक यहाँ आ जाएगा -->
+                <input type="text" id="custGift" placeholder="Your Won Gift (Optional)" readonly>
                 <textarea id="custAddress" placeholder="Enter Delivery Full Address" rows="4" required></textarea>
                 <button type="submit" class="submit-booking">📲 Complete Booking via WhatsApp</button>
                 <button type="button" class="close-btn" onclick="closeModal()">Cancel</button>
