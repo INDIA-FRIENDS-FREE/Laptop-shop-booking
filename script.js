@@ -1,23 +1,22 @@
- const allLaptops = [
-    { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best" },
-    { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal" },
-    { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best" },
-    { id: 4, name: "Apple MacBook Air M1", price: 46500, specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", badge: "apple" },
-    { id: 5, name: "Apple MacBook Pro M2", price: 68000, specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", badge: "apple" },
-    { id: 6, name: "Lenovo ThinkPad L14", price: 24500, specs: "Ryzen 5 | 8GB RAM | 512GB SSD", badge: "deal" },
-    { id: 7, name: "Dell Inspiron 15", price: 29000, specs: "i3 11th Gen | 8GB RAM | 512GB SSD", badge: "best" },
-    { id: 8, name: "Apple MacBook Air Intel", price: 28500, specs: "Core i5 | 8GB RAM | 128GB SSD | 2017 Model", badge: "apple" }
+ // लैपटॉप की फाइनल लिस्ट (हाई-क्वालिटी असली इमेजेस और लिमिटेड स्टॉक टैग के साथ)
+const allLaptops = [
+    { id: 1, name: "ThinkPad T480s", price: 18500, specs: "i5 8th Gen | 16GB RAM | 512GB SSD", badge: "best", image: "https://unsplash.com", stock: "🔥 Only 2 Left!" },
+    { id: 2, name: "Dell Latitude 7490", price: 16500, specs: "i5 8th Gen | 16GB RAM | 256GB SSD", badge: "deal", image: "https://unsplash.com", stock: "⚡ Selling Fast" },
+    { id: 3, name: "HP EliteBook 840 G5", price: 22000, specs: "i7 8th Gen | 16GB RAM | 512GB SSD", badge: "best", image: "https://unsplash.com", stock: "🔥 Only 1 Left!" },
+    { id: 4, name: "Apple MacBook Air M1", price: 46500, specs: "Apple M1 Chip | 8GB RAM | 256GB SSD Retina", badge: "apple", image: "https://unsplash.com", stock: "🍏 Premium Quality" },
+    { id: 5, name: "Apple MacBook Pro M2", price: 68000, specs: "Apple M2 Chip | 16GB RAM | 512GB SSD Touchbar", badge: "apple", image: "https://unsplash.com", stock: "🔥 In High Demand" },
+    { id: 6, name: "Lenovo ThinkPad L14", price: 24500, specs: "Ryzen 5 | 8GB RAM | 512GB SSD", badge: "deal", image: "https://unsplash.com", stock: "⚡ 3 Items Left" }
 ];
 
 let selectedLaptop = null;
-let generatedCode = ""; // सीक्रेट कोड रखने के लिए वेरिएबल
+let generatedCode = ""; 
 let currentRotation = 0; 
 
 function displayLaptops(laptops) {
     const container = document.getElementById('laptopContainer');
     container.innerHTML = ""; 
     if(laptops.length === 0) {
-        container.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Oops! कोई लैपटॉप नहीं मिला।</p>";
+        container.innerHTML = "<p style='grid-column: 1/-1; text-align:center; font-size:18px;'>Oops! कोई लैपटॉप नहीं मिला।</p>";
         return;
     }
     laptops.forEach(laptop => {
@@ -26,8 +25,10 @@ function displayLaptops(laptops) {
         let badgeText = laptop.badge === 'best' ? "🔥 Best Seller" : laptop.badge === 'deal' ? "⚡ Super Deal" : "🍏 Apple Premium";
         card.innerHTML = `
             <span class="badge ${laptop.badge}">${badgeText}</span>
+            <img src="${laptop.image}" alt="${laptop.name}" class="laptop-img">
             <h3>${laptop.name}</h3>
             <p class="specs">${laptop.specs}</p>
+            <div><span class="stock-alert">${laptop.stock}</span></div>
             <p class="price">₹${laptop.price.toLocaleString('en-IN')}</p>
             <button class="buy-btn" onclick="openModal(${laptop.id})">अभी खरीदें</button>
         `;
@@ -50,7 +51,7 @@ document.getElementById('searchBar').addEventListener('input', filterLaptops);
 document.getElementById('minPrice').addEventListener('input', filterLaptops);
 document.getElementById('maxPrice').addEventListener('input', filterLaptops);
 
-// सीक्रेट कोड जनरेटर और स्पिन लॉजिक
+// सीक्रेट कोड और स्पिन लॉजिक
 let canSpin = true; 
 function spinWheel() {
     if (!canSpin) {
@@ -66,15 +67,7 @@ function spinWheel() {
     document.getElementById('spinResult').innerText = "🔄 भाग्य का पहिया घूम रहा है...";
 
     const gifts = ["₹400 Discount 💰", "Mouse 🖱️", "₹600 Discount 💵", "Bag 🎒", "₹550 Discount 💸", "Keyboard ⌨️"];
-    // हर इनाम के लिए आपकी सीक्रेट कोड डिक्शनरी
-    const codeMap = {
-        "Key": "LPT4", // ₹400 Off का कोड
-        "M2": "MSE2",  // Mouse का री-स्पिन मैसेज
-        "Key6": "DSC6", // ₹600 Off का कोड
-        "B4": "BAG4",  // Bag का री-स्पिन मैसेज
-        "Key5": "OFF5", // ₹550 Off का कोड
-        "K1": "KBD1"   // Keyboard का री-स्पिन मैसेज
-    };
+    const codeMap = { "Key": "LPT4", "Key6": "DSC6", "Key5": "OFF5" };
     
     const randomDegree = Math.floor(Math.random() * 360) + 1800; 
     currentRotation += randomDegree; 
@@ -88,11 +81,10 @@ function spinWheel() {
 
         if (result.includes("Mouse") || result.includes("Bag") || result.includes("Keyboard")) {
             document.getElementById('spinResult').style.color = "#ff9800";
-            document.getElementById('spinResult').innerHTML = `🎁 आपको मिला: <strong>${result}</strong><br>🎉 आपको <strong>1 और फ्री स्पिन करने का मौका</strong> मिलता है! दोबारा बटन दबाएं।`;
+            document.getElementById('spinResult').innerHTML = `🎁 आपको मिला: <strong>${result}</strong><br>🎉 आपको <strong>1 और फ्री स्पिन करने का मौका</strong> मिलता है! दोबारा ट्राई करें।`;
             generatedCode = "";
             canSpin = true; 
         } else {
-            // सीक्रेट कोड असाइन करना
             if(index === 0) generatedCode = codeMap["Key"];
             if(index === 2) generatedCode = codeMap["Key6"];
             if(index === 4) generatedCode = codeMap["Key5"];
@@ -110,7 +102,7 @@ function openModal(id) {
 }
 function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
 
-// WhatsApp आर्डर सबमिशन
+// WhatsApp बुकिंग
 document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('custName').value;
@@ -118,8 +110,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     const enteredCode = document.getElementById('custCode').value.trim().toUpperCase();
     const address = document.getElementById('custAddress').value;
     
-    // ⚠️ अपना 10 अंकों का मोबाइल नंबर यहाँ डालें
-    const myWhatsAppNumber = "919876543210"; 
+    const myWhatsAppNumber = "919876543210"; // यहाँ अपना या दुकानदार का नंबर आएगा
 
     const message = `🚨 *नया ऑर्डर आया है!* 🚨\n\n` +
                     `💻 *लैपटॉप:* ${selectedLaptop.name}\n` +
@@ -127,7 +118,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
                     `🔐 *कस्टमर का स्पिन कोड:* ${enteredCode || "कोई कोड नहीं डाला"}\n\n` +
                     `👤 *ग्राहक का नाम:* ${name}\n` +
                     `📞 *WhatsApp नंबर:* ${phone}\n` +
-                    `📍 *पता:* *${address}*`;
+                    `📍 *पता:* ${address}`;
 
     window.open(`https://wa.me{myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
     closeModal();
