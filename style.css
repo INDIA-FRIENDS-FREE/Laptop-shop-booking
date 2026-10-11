@@ -43,7 +43,6 @@ header {
 .laptop-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; position: relative; transition: transform 0.3s; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
 .laptop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-/* SVG लैपटॉप डिज़ाइन का कंटेनर */
 .laptop-img-wrapper {
     width: 100%;
     height: 160px;

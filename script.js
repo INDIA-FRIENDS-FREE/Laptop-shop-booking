@@ -119,7 +119,6 @@ function filterLaptops() {
     displayLaptops(filtered);
 }
 
-// सेफ लिशनर्स
 if(document.getElementById('searchBar')) document.getElementById('searchBar').addEventListener('input', filterLaptops);
 if(document.getElementById('minPrice')) document.getElementById('minPrice').addEventListener('input', filterLaptops);
 if(document.getElementById('maxPrice')) document.getElementById('maxPrice').addEventListener('input', filterLaptops);
