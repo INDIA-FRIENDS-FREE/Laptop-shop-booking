@@ -1,0 +1,79 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Laptops | Premium Second-Hand Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. टॉप नेविगेशन और शॉप डिटेल्स -->
+    <header class="navbar">
+        <div class="logo">💻 NextGen<span>Laptops</span></div>
+        <div class="shop-contact">
+            <span>📞 +91 9876543210</span> | 
+            <span>✉️ shop@gmail.com</span>
+        </div>
+    </header>
+
+    <!-- 2. हीरो बैनर -->
+    <section class="hero">
+        <h1>Top-Quality Second Hand Laptops</h1>
+        <p>Tested, Certified, and Pocket-Friendly Prices with Warranty!</p>
+    </section>
+
+    <!-- 3. लैपटॉप की रंग-बिरंगी लिस्टिंग -->
+    <section class="products-section">
+        <h2 class="section-title">Available Stocks 🔥</h2>
+        
+        <div class="products-grid">
+            <!-- लैपटॉप 1 -->
+            <div class="laptop-card">
+                <div class="badge">Best Seller</div>
+                <img src="https://unsplash.com" alt="Laptop">
+                <h3>ThinkPad T480s</h3>
+                <p class="specs">Core i5 8th Gen | 16GB RAM | 512GB SSD</p>
+                <div class="price-box">
+                    <span class="old-price">₹45,000</span>
+                    <span class="new-price">₹18,500</span>
+                </div>
+                <button class="order-btn" onclick="openOrderModal('ThinkPad T480s', '₹18,500')">⚡ Book Order Now</button>
+            </div>
+
+            <!-- लैपटॉप 2 -->
+            <div class="laptop-card">
+                <div class="badge">Super Deal</div>
+                <img src="https://unsplash.com" alt="Laptop">
+                <h3>Dell Latitude 7490</h3>
+                <p class="specs">Core i7 8th Gen | 8GB RAM | 256GB SSD</p>
+                <div class="price-box">
+                    <span class="old-price">₹52,000</span>
+                    <span class="new-price">₹19,999</span>
+                </div>
+                <button class="order-btn" onclick="openOrderModal('Dell Latitude 7490', '₹19,999')">⚡ Book Order Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. जादुई ऑर्डर बुकिंग फॉर्म (Modal Popup) -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+            <h2>Confirm Your Order 🛒</h2>
+            <p id="modalLaptopInfo" style="color: #00ffcc; font-weight: bold;"></p>
+            
+            <form id="bookingForm" onsubmit="submitOrder(event)">
+                <input type="text" id="custName" placeholder="Enter Your Full Name" required>
+                <input type="tel" id="custPhone" placeholder="Enter WhatsApp Number" required>
+                <textarea id="custAddress" placeholder="Enter Delivery Full Address" rows="4" required></textarea>
+                
+                <button type="submit" class="submit-booking">📲 Complete Booking via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- यहाँ पर त्रुटि सुधार दी गई है भाई (src लगाया गया है) -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+/* 1. बेसिक सेटिंग्स और वेरिएबल्स */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f111a; /* डार्क प्रीमियम थीम */
+    color: #ffffff;
+}
+
+/* 2. टॉप नेविगेशन बार */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #161925;
+    border-bottom: 2px solid #1f2335;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #00ffcc; /* नियॉन ग्रीन रंग */
+}
+
+.shop-contact span {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #a0aec0;
+}
+
+/* 3. हीरो बैनर */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f111a 100%);
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.hero p {
+    color: #00ffcc;
+    font-size: 18px;
+}
+
+/* 4. लैपटॉप की रंग-बिरंगी लिस्टिंग (Grid) */
+.products-section {
+    padding: 40px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 5. लैपटॉप कार्ड डिजाइन */
+.laptop-card {
+    background-color: #161925;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    border: 1px solid #23273a;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.laptop-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ffcc; /* होवर करने पर नियॉन बॉर्डर */
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #ff3366;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.laptop-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.laptop-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.specs {
+    color: #a0aec0;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.price-box {
+    margin-bottom: 20px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #718096;
+    margin-right: 10px;
+}
+
+.new-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00ffcc;
+}
+
+/* ऑर्डर बटन */
+.order-btn {
+    width: 100%;
+    background-color: #00ffcc;
+    color: #0f111a;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.order-btn:hover {
+    background-color: #00ccaa;
+}
+
+/* 6. जादुई ऑर्डर बुकिंग फॉर्म (Modal Pop-up) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #161925;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #1f2335;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #a0aec0;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+.modal h2 {
+    margin-bottom: 15px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #0f111a;
+    border: 1px solid #23273a;
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #00ffcc;
+    outline: none;
+}
+
+.submit-booking {
+    width: 100%;
+    background-color: #25d366; /* व्हाट्सएप ग्रीन */
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.submit-booking:hover {
+    background-color: #1ebd54;
+}
